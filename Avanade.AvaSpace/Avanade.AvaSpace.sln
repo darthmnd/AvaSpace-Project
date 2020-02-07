@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Api", "0. Api", "{0F2727B4-5F67-4EE0-994D-6116DFB9EAE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Commands", "1. Commands", "{57D336F7-8CE7-4F96-997A-DB2E2FE27E07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{F5C3E834-E246-4B4C-AF23-75B556341AFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infrastructure", "3. Infrastructure", "{8118155D-359B-48D2-8F18-E59E26CAC1BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaSpace.Domain", "AvaSpace.Domain\AvaSpace.Domain.csproj", "{F4FD0EF9-3C37-4149-BB85-235C49720696}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. ConsoleApp", "5. ConsoleApp", "{DB68F093-2D61-4406-BF00-334AE2D4D133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaSpace.ConsoleApp", "AvaSpace.ConsoleApp\AvaSpace.ConsoleApp.csproj", "{AACD2C72-E284-4119-9A40-F66179F1AEA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaSpace.Infrastructure", "AvaSpace.Infrastructure\AvaSpace.Infrastructure.csproj", "{C589A567-3613-4222-9852-6323509FECF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaSpace.API", "AvaSpace.API\AvaSpace.API.csproj", "{61F2533A-4F85-4A3C-B098-3168C833AB9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Test", "4. Test", "{DD5E1A48-A582-4F1A-BAFD-65ACDE0F61EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4FD0EF9-3C37-4149-BB85-235C49720696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FD0EF9-3C37-4149-BB85-235C49720696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FD0EF9-3C37-4149-BB85-235C49720696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FD0EF9-3C37-4149-BB85-235C49720696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACD2C72-E284-4119-9A40-F66179F1AEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACD2C72-E284-4119-9A40-F66179F1AEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACD2C72-E284-4119-9A40-F66179F1AEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACD2C72-E284-4119-9A40-F66179F1AEA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C589A567-3613-4222-9852-6323509FECF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C589A567-3613-4222-9852-6323509FECF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C589A567-3613-4222-9852-6323509FECF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C589A567-3613-4222-9852-6323509FECF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61F2533A-4F85-4A3C-B098-3168C833AB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F2533A-4F85-4A3C-B098-3168C833AB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F2533A-4F85-4A3C-B098-3168C833AB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F2533A-4F85-4A3C-B098-3168C833AB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4FD0EF9-3C37-4149-BB85-235C49720696} = {F5C3E834-E246-4B4C-AF23-75B556341AFA}
+		{AACD2C72-E284-4119-9A40-F66179F1AEA9} = {DB68F093-2D61-4406-BF00-334AE2D4D133}
+		{C589A567-3613-4222-9852-6323509FECF0} = {8118155D-359B-48D2-8F18-E59E26CAC1BE}
+		{61F2533A-4F85-4A3C-B098-3168C833AB9A} = {0F2727B4-5F67-4EE0-994D-6116DFB9EAE9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE264CDC-9CA6-4C33-B6F4-93F6A6DABD0B}
+	EndGlobalSection
+EndGlobal
