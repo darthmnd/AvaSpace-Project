@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AvaSpace.Domain.Entities
 {
@@ -6,7 +7,7 @@ namespace AvaSpace.Domain.Entities
     {
         public BaseEntity()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
             DateCreate = DateTime.Now;
             DateUpdate = DateTime.Now;
         }
@@ -14,5 +15,6 @@ namespace AvaSpace.Domain.Entities
         public DateTime DateCreate { get; set; }
         public DateTime DateUpdate { get; set; }
         public bool Active { get; set; }
+        public abstract void Validate();
     }
 }

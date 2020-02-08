@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AvaSpace.Domain\AvaSpace.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

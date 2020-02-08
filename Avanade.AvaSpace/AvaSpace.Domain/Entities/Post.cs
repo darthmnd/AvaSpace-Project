@@ -9,7 +9,7 @@ namespace AvaSpace.Domain.Entities
         {
             Midias = new List<Midia>();
 
-            Likes = new List<User>();
+            Likes = new List<Like>();
 
             Comments = new List<Post>();
         }   
@@ -18,7 +18,12 @@ namespace AvaSpace.Domain.Entities
         public Guid ParentId { get; set; }
         public string Text  { get; set; }
         public List<Midia> Midias { get; set; }
-        public List<User> Likes { get; set; }
+        public List<Like> Likes { get; set; }
         public List<Post> Comments { get; set; }
+
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -19,10 +19,5 @@ namespace AvaSpace.Domain.Entities.ValueObjects
         public static Email ToEmail(string emailAddress) => new Email(emailAddress);
 
         public override string ToString() => EmailAddress;
-
-        public string SetEmail(string email)
-        {
-            return EmailAddress = email;
-        }
     }
 }

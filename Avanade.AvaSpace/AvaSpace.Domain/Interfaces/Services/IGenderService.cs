@@ -2,8 +2,8 @@
 
 namespace AvaSpace.Domain.Interfaces.Services
 {
-    public interface IServiceBase<TEntity> : IBase<TEntity> 
-        where TEntity : BaseEntity
+    public interface IGenderService : IServiceBase<Gender>
     {
+
     }
 }

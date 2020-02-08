@@ -8,7 +8,7 @@ namespace AvaSpace.Domain.Entities
         public User (string fullName, string emailAddress, DateTime birthDate, string gender)
         {
             Name = new Name(fullName);
-            Email.SetEmail(emailAddress);
+            Email = new Email(emailAddress);
             Birthday = birthDate;
             Gender = new Gender();
         }
@@ -19,5 +19,11 @@ namespace AvaSpace.Domain.Entities
         public Gender Gender { get; set; }
         public Midia Cover { get; set; }
         public Midia Avatar { get; set; }
+
+        public override void Validate()
+        {
+            if (!Name.Valid) throw new ArgumentException("O Nome está inválido.");
+            if (!Email.Valid) throw new ArgumentException("O Email está inválido.");
+        }
     }
 }

@@ -9,24 +9,25 @@ namespace AvaSpace.Infrastructure.Repositories
 {
     public class UserRepository
     {
-        public int Create(User user)
+        public Guid Insert(User user)
         {
             string sql = "INSERT INTO Users (Name, Email, BirthDate, Gender, ProfilePicturePath, CoverPhotoPath, Password, Active, CreateDate) " +
                         "values (@Name, @Email, @BirthDate, @Gender, @ProfilePicturePath, @CoverPhotoPath, @Password, @Active, @CreateDate)";
             using (var connection = new SqlConnection(""))
             {
-                return connection.Execute(sql,
-                    new
-                    {
-                        user.Name,
-                        user.Email,
-                        user.BirthDate,
-                        user.Gender,
-                    });
+                connection.Execute(sql,
+                       new
+                       {
+                           user.Name,
+                           user.Email,
+                           user.Birthday,
+                           user.Gender,
+                       });
+                return user.Id;
             }
         }
 
-        public async Task<int> DeactivateAsync(int idUser)
+        public async Task<int> DeleteAsync(int idUser)
         {
             string sql = "UPDATE Users SET  Active = @Active where Id = @Id";
             using (var connection = new SqlConnection(""))
@@ -40,7 +41,7 @@ namespace AvaSpace.Infrastructure.Repositories
             }
         }
 
-        public async Task<IEnumerable<User>> ReadAsync()
+        public async Task<IEnumerable<User>> GetAsync()
         {
             string sql = "SELECT * FROM Users";
             using (var connection = new SqlConnection(""))
@@ -49,7 +50,7 @@ namespace AvaSpace.Infrastructure.Repositories
             }
         }
 
-        public async Task<IEnumerable<User>> ReadAsync(int idUser)
+        public async Task<IEnumerable<User>> GetAsync(int idUser)
         {
             string sql = "SELECT * FROM Users WHERE Id = @Id;";
             using (var connection = new SqlConnection(""))
@@ -78,7 +79,7 @@ namespace AvaSpace.Infrastructure.Repositories
                     {
                         user.Name,
                         user.Email,
-                        user.BirthDate,
+                        user.Birthday,
                         user.Gender
                     });
             }

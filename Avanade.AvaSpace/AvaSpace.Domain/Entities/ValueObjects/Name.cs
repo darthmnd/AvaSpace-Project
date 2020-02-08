@@ -9,7 +9,6 @@ namespace AvaSpace.Domain.Entities.ValueObjects
         public Name(string name)
         {
             Assert(() => !string.IsNullOrWhiteSpace(name));
-            Assert(() => !string.IsNullOrEmpty(name));
 
             FullName = name;
         }
