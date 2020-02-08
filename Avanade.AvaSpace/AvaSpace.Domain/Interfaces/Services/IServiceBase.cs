@@ -1,0 +1,11 @@
+﻿using AvaSpace.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AvaSpace.Domain.Interfaces.Services
+{
+    public interface IServiceBase<TEntity> : IBase<TEntity> where TEntity : BaseEntity
+    {
+    }
+}

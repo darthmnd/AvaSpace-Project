@@ -1,20 +1,23 @@
-﻿using AvaSpace.Domain.ValueObjects;
+﻿using AvaSpace.Domain.Entities.ValueObjects;
 using System;
 
 namespace AvaSpace.Domain.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        public User (string fullName, string emailAddress, DateTime birthDate, int gender)
+        public User (string fullName, string emailAddress, DateTime birthDate, string gender)
         {
-            Name.SetName(fullName);
+            Name = new Name(fullName);
             Email.SetEmail(emailAddress);
-            BirthDate = birthDate;
-            Gender = gender;
+            Birthday = birthDate;
+            Gender = new Gender();
         }
         public Name Name { get; private set; }
         public Email Email { get; private set; }
-        public DateTime BirthDate { get; set; }
-        public int Gender { get; set; }
+        public string Password { get; set; }
+        public DateTime Birthday { get; set; }
+        public Gender Gender { get; set; }
+        public Midia Cover { get; set; }
+        public Midia Avatar { get; set; }
     }
 }

@@ -1,6 +1,9 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
 
-namespace AvaSpace.Domain.ValueObjects
+namespace AvaSpace.Domain.Entities.ValueObjects
 {
     public class Email : Verifiable
     {
@@ -17,7 +20,7 @@ namespace AvaSpace.Domain.ValueObjects
 
         public override string ToString() => EmailAddress;
 
-        public string SetEmail(string email) 
+        public string SetEmail(string email)
         {
             return EmailAddress = email;
         }
