@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AvaSpace.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AvaSpace.Domain.Interfaces.Applications
 {
-    interface IUserApplication
+    public interface IUserApplication : IApplicationBase<User>
     {
     }
 }
+
