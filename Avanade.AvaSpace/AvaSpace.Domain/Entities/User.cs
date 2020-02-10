@@ -10,14 +10,17 @@ namespace AvaSpace.Domain.Entities
             Name = new Name(fullName);
             Email = new Email(emailAddress);
             Birthday = birthDate;
-            Gender = new Gender();
+            Gender = new Gender(gender);
         }
         public Name Name { get; private set; }
         public Email Email { get; private set; }
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
+        public Guid GenderId { get; set; }
         public Gender Gender { get; set; }
+        public Guid CoverId { get; set; }
         public Midia Cover { get; set; }
+        public Guid AvatarId { get; set; }
         public Midia Avatar { get; set; }
 
         public override void Validate()

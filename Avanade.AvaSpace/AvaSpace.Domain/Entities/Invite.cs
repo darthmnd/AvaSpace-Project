@@ -4,8 +4,15 @@ namespace AvaSpace.Domain.Entities
 {
     public class Invite : BaseEntity
     {
+        public Invite()
+        {
+            Active = true;
+        }
+        public Guid SenderId { get; set; }
         public User Sender { get; set; }
+        public Guid ReceiverId { get; set; }
         public User Receiver { get; set; }
+        public Guid StatusId { get; set; }
         public InviteStatus Status { get; set; }
 
         public override void Validate()

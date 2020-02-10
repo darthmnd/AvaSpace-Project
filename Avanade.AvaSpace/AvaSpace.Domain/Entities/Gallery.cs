@@ -11,6 +11,7 @@ namespace AvaSpace.Domain.Entities
             Name = new Name(name);
         }
         public Name Name { get; private set; }
+        public Guid AuthorId { get; set; }
         public User Author { get; set; }
         public List<Midia> Midias { get; set; }
 

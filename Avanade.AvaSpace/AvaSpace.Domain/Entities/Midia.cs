@@ -8,6 +8,7 @@ namespace AvaSpace.Domain.Entities
         {
             MidiaType = new MidiaType();
         }
+        public Guid MidiaTypeId { get; set; }
         public MidiaType MidiaType { get; set; }
         public string Path { get; set; }
 

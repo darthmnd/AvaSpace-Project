@@ -4,6 +4,10 @@ namespace AvaSpace.Domain.Entities
 {
     public class Gender : BaseEntity
     {
+        public Gender(string description) 
+        {
+            Description = description;
+        }
         public string Description { get; set; }
 
         public override void Validate()

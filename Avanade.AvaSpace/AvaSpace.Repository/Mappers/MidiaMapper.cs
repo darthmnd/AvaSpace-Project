@@ -7,7 +7,7 @@ namespace AvaSpace.Repository.Mappers
         public MidiaMapper()
         {
             ToTable("TB_MIDIA");
-            Map(e => e.MidiaType.Id).ToColumn("ID_MIDIA_TYPE");
+            Map(e => e.MidiaTypeId).ToColumn("ID_MIDIA_TYPE");
             Map(e => e.Path).ToColumn("DS_PATH");
         }
     }
