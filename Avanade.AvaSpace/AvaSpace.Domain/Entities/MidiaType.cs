@@ -9,7 +9,11 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Extensions)) throw new ArgumentException("É necessário passar a extensão do arquivo.");
+            if (string.IsNullOrWhiteSpace(Extensions)) 
+                throw new ArgumentException("É necessário passar a extensão do arquivo.");
+
+            if (string.IsNullOrWhiteSpace(Description))
+                throw new ArgumentException("É necessário passar a descricao tipo do arquivo.");
         }
     }
 }

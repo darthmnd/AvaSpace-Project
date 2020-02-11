@@ -7,8 +7,11 @@ namespace AvaSpace.Domain.Services
     public class EventService : ServiceBase<Event>, IEventService
     {
         private readonly IEventRepository _eventService;
+        
         public EventService(IEventRepository eventService) : base(eventService) {
+            
             _eventService = eventService;
+        
         }
     }
 }

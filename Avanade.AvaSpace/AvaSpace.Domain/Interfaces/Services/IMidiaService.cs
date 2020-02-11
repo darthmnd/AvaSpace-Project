@@ -2,10 +2,8 @@
 
 namespace AvaSpace.Domain.Interfaces.Services
 {
-    public interface IUserService : IServiceBase<User>
+    public interface IMidiaService : IServiceBase<Midia>
     {
 
     }
 }
-
-
