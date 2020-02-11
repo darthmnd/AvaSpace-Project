@@ -5,6 +5,14 @@ namespace AvaSpace.Domain.Entities
 {
     public class User : BaseEntity
     {
+        public User(User user) 
+        {
+            Name = new Name(user.Name.FullName);
+            Email = new Email(user.Email.EmailAddress);
+            Birthday = user.Birthday;
+            Gender = new Gender(user.Gender.Description);
+        }
+        
         public User (string fullName, string emailAddress, DateTime birthDate, string gender)
         {
             Name = new Name(fullName);

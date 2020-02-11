@@ -8,6 +8,8 @@ namespace AvaSpace.Domain.Entities
     {
         public Event(User author, string eventName, Address address, DateTime eventDate) 
         {
+            Author = new User(author);
+            Address = new Address(address);
             Author = author;
             Name = eventName;
             Address = address;
@@ -16,12 +18,13 @@ namespace AvaSpace.Domain.Entities
         public Address Address { get; private set; }
         public DateTime EventDate { get; set; }
         public string Name { get; set; }
-        public List<User> Users { get; set; }
+        public List<PersonEvent> Persons { get; set; }
+        public Guid AuthorId { get; set; }
         public User Author { get; set; }
         public override void Validate()
         {
             if (!Address.Valid) throw new ArgumentException("Endereço inválido.");
-            if (Author == null) throw new ArgumentException("O Usuário criador do evento é obrigatório");
+            if (Author.Id == Guid.Empty) throw new ArgumentException("O Usuário criador do evento é obrigatório");
             DateTime date = new DateTime();
             if (EventDate == date) throw new ArgumentException("O Usuário criador do evento é obrigatório");
         }
