@@ -1,18 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using System;
 
-namespace AvaSpace.Domain.Entities
+namespace Gama.RedeSocial.Domain.Entities
 {
     public class Like : BaseEntity
     {
-        public User User { get; set; }
+        public Like()
+        {
+            Post = new Post();
+
+            User = new User();
+        }
+
+
+        public Guid PostId{ get; set; }
         public Post Post { get; set; }
+
+        public Guid UserId { get; set; }
+        public User User { get; set; }
 
         public override void Validate()
         {
-            if (User == null) throw new ApplicationException("O Usuário é obrigatório.");
-            if (Post == null) throw new ApplicationException("O Post é obrigatório.");
+            if (PostId == Guid.Empty)
+                throw new ArgumentNullException("'PostId' não foi preenchido");
+
+            if (UserId == Guid.Empty)
+                throw new ArgumentNullException("'UserId' não foi preenchido");
+
         }
     }
 }

@@ -11,9 +11,9 @@ namespace AvaSpace.Repository.Mappers
             Map(e => e.Email.EmailAddress).ToColumn("DS_EMAIL");
             Map(e => e.Password).ToColumn("DS_PASSWORD");
             Map(e => e.Birthday).ToColumn("DT_BIRTHDAY");
-            Map(e => e.Gender.Id).ToColumn("ID_GENDER");
-            Map(e => e.Cover.Path).ToColumn("ID_COVER");
-            Map(e => e.Avatar.Path).ToColumn("ID_AVATAR");
+            Map(e => e.GenderId).ToColumn("ID_GENDER");
+            Map(e => e.CoverId).ToColumn("ID_COVER");
+            Map(e => e.AvatarId).ToColumn("ID_AVATAR");
         }
     }
 }

@@ -14,5 +14,10 @@ namespace AvaSpace.Domain.Entities.ValueObjects
         }
 
         public string FullName { get; private set; }
+
+        public static implicit operator Name(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

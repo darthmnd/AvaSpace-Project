@@ -10,6 +10,7 @@ namespace AvaSpace.Repository
         {
             FluentMapper.Initialize(config =>
             {
+                config.AddMap(new EventMapper());
                 config.AddMap(new GalleryMapper());
                 config.AddMap(new GenderMapper());
                 config.AddMap(new InviteMapper());
@@ -17,6 +18,7 @@ namespace AvaSpace.Repository
                 config.AddMap(new LikeMapper());
                 config.AddMap(new MidiaMapper());
                 config.AddMap(new MidiaTypeMapper());
+                config.AddMap(new PersonEventMapper());
                 config.AddMap(new PostMapper());
                 config.AddMap(new UserMapper());
                 config.ForDommel();

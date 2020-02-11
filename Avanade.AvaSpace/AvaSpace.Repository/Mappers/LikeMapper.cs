@@ -10,8 +10,8 @@ namespace AvaSpace.Repository.Mappers
         public LikeMapper()
         {
             ToTable("TB_LIKES");
-            Map(e => e.User.Id).ToColumn("ID_USER");
-            Map(e => e.Post.Id).ToColumn("ID_POST");
+            Map(e => e.UserId).ToColumn("ID_USER");
+            Map(e => e.PostId).ToColumn("ID_POST");
         }
     }
 }

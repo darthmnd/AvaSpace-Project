@@ -13,7 +13,7 @@ namespace AvaSpace.Repository.Mappers
             ToTable("TB_POST");
             Map(e => e.Text).ToColumn("DS_TEXT");
             Map(e => e.ParentId).ToColumn("ID_PARENT");
-            Map(e => e.Author.Id).ToColumn("ID_USER");
+            Map(e => e.AuthorId).ToColumn("ID_USER");
         }
     }
 }

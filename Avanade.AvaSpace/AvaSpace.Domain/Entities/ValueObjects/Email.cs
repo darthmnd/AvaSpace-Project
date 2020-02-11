@@ -19,5 +19,10 @@ namespace AvaSpace.Domain.Entities.ValueObjects
         public static Email ToEmail(string emailAddress) => new Email(emailAddress);
 
         public override string ToString() => EmailAddress;
+
+        public static implicit operator Email(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
