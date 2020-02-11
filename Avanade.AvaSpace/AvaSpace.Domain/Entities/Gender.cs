@@ -4,15 +4,12 @@ namespace AvaSpace.Domain.Entities
 {
     public class Gender : BaseEntity
     {
-        public Gender(string description) 
-        {
-            Description = description;
-        }
         public string Description { get; set; }
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentNullException("O Gênero deve ser preenchido.");
+            if (String.IsNullOrWhiteSpace(Description))
+                throw new ArgumentNullException("'Description' não foi preenchido");
         }
     }
 }
