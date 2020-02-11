@@ -26,7 +26,7 @@ namespace AvaSpace.Test
         [ExpectedException(typeof(ArgumentNullException))]
         public void ValidateTest()
         {
-            var gender = new Gender();
+            var gender = new Gender("");
 
             _service.Insert(gender);
 
@@ -35,10 +35,7 @@ namespace AvaSpace.Test
         [TestMethod]
         public void IntegratedTest()
         {
-            var gender = new Gender()
-            {
-                Description = "Indefinido"
-            };
+            var gender = new Gender("Indefinido");
 
             _service.Insert(gender);
         }

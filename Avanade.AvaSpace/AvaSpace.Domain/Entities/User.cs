@@ -5,14 +5,23 @@ namespace AvaSpace.Domain.Entities
 {
     public class User : BaseEntity
     {
-        public User()
+        public User(User user) 
         {
-            Gender = new Gender();
-            Cover = new Midia();
-            Avatar = new Midia();
+            Name = new Name(user.Name.FullName);
+            Email = new Email(user.Email.EmailAddress);
+            Birthday = user.Birthday;
+            Gender = new Gender(user.Gender.Description);
         }
-        public Name Name { get;  set; }
-        public Email Email { get;  set; }
+        
+        public User (string fullName, string emailAddress, DateTime birthDate, string gender)
+        {
+            Name = new Name(fullName);
+            Email = new Email(emailAddress);
+            Birthday = birthDate;
+            Gender = new Gender(gender);
+        }
+        public Name Name { get; private set; }
+        public Email Email { get; private set; }
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
         public Guid GenderId { get; set; }
@@ -40,15 +49,6 @@ namespace AvaSpace.Domain.Entities
 
             if (Birthday == DateTime.MinValue)
                 throw new ArgumentException("Data de Nascimento é inválido");
-
-            if (GenderId == Guid.Empty)
-                throw new ArgumentNullException("'GenderId' não foi preenchido");
-
-            if (CoverId == Guid.Empty)
-                throw new ArgumentNullException("'CoverId' não foi preenchido");
-
-            if (AvatarId == Guid.Empty)
-                throw new ArgumentNullException("'AvatarId' não foi preenchido");
         }
     }
 }

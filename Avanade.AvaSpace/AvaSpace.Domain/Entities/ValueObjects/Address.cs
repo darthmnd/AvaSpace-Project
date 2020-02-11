@@ -4,6 +4,14 @@ namespace AvaSpace.Domain.Entities.ValueObjects
 {
     public class Address : Verifiable
     {
+        public Address(Address address) 
+        {
+            ZipCode = address.ZipCode;
+            Street = address.Street;
+            Number = address.Number;
+            Neighborhood = address.Neighborhood;
+            Complement = address.Complement;
+        }
         public Address(string zipCode, string street, int number, string neighborhood, string complement = "")
         {
             bool isValidZipCode = Regex.IsMatch(zipCode ?? string.Empty, @"^\d{5}-\d{3}$");

@@ -25,7 +25,7 @@ namespace AvaSpace.Test
         [ExpectedException(typeof(ArgumentNullException))]
         public void NameNull()
         {
-            var user = new User();
+            var user = new User("", "teste", DateTime.Now, "female");
 
             _service.Insert(user);
         }
@@ -34,10 +34,7 @@ namespace AvaSpace.Test
         [ExpectedException(typeof(ArgumentNullException))]
         public void EmailNull()
         {
-            var user = new User()
-            {
-                Name = "teste"
-            };
+            var user = new User("teste", "", DateTime.Now, "female");
 
             _service.Insert(user);
         }
@@ -46,27 +43,16 @@ namespace AvaSpace.Test
         [ExpectedException(typeof(ArgumentException))]
         public void EmailInvalid()
         {
-            var user = new User()
-            {
-                Name = "teste",
-                Email = "teste"
-            };
+            var user = new User("teste", "teste", DateTime.Now, "female");
 
             _service.Insert(user);
         }
-
-        //_______________________________________________________
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void PasswordNull()
         {
-            var user = new User()
-            {
-                Name = "teste",
-                Email = "teste"
-            };
-
+            var user = new User("teste", "teste", DateTime.Now, "female");
             _service.Insert(user);
         }
 
@@ -74,48 +60,31 @@ namespace AvaSpace.Test
         [ExpectedException(typeof(ArgumentException))]
         public void PasswordInvalid()
         {
-            var user = new User()
-            {
-                Name = "teste",
-                Email = "teste",
-                Password = "123"
-            };
+            var user = new User("teste", "teste", DateTime.Now, "female");
+            user.Password = "1234567";
 
             _service.Insert(user);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void BirthdaydNull()
-        {
-            var user = new User()
-            {
-                Name = "teste",
-                Email = "teste",
-                Password =  "123"
-            };
+        // Perguntar pro filipe
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        //public void BirthdaydNull()
+        //{
+        //    var user = new User("teste", "teste", DateTime.Now, "female");
+        //    user.Password = "1234567";
 
-            _service.Insert(user);
-        }
+        //    _service.Insert(user);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void GenderNull()
         {
-            var user = new User()
-            {
-                Name = "teste",
-                Email = "teste",
-                Password = "123",
-                Birthday= DateTime.Now,
-            };
+            var user = new User("teste", "teste", DateTime.Now, "female");
+            user.Password = "1234567";
 
             _service.Insert(user);
         }
-
-        
-
-
-
     }
 }
