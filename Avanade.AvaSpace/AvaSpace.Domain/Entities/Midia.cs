@@ -14,8 +14,14 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Path)) throw new ArgumentException("O Caminho da imagem deve ser passado.");
-            if (MidiaType == null) throw new ArgumentException("O tipo da Midia deve ser passado.");
+            if (MidiaTypeId == Guid.Empty)
+                throw new ArgumentNullException("'MidiaTypeId' não foi preenchido");
+
+            if (string.IsNullOrWhiteSpace(Path)) 
+                throw new ArgumentException("O Caminho da imagem deve ser passado.");
+
+            if (MidiaType == null) 
+                throw new ArgumentException("O tipo da Midia deve ser passado.");
         }
     }
 }
