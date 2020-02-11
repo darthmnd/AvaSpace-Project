@@ -11,7 +11,7 @@ namespace AvaSpace.Domain.Entities
             Cover = new Midia();
             Avatar = new Midia();
         }
-        public Name Name { get; private set; }
+        public Name Name { get;  set; }
         public Email Email { get; private set; }
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
