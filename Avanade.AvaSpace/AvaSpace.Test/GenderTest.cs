@@ -11,27 +11,36 @@ namespace AvaSpace.Test
     [TestClass]
     public class GenderTest
     {
-        private readonly IGenderService _genderService;
-        public GenderTest() 
+        private readonly IGenderService _service;
+
+        public GenderTest()
         {
-            RegisterMappers.Register();   
+            RegisterMappers.Register();
+
             var repository = new GenderRepository();
-            _genderService = new GenderService(repository);
+
+            _service = new GenderService(repository);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void GenderValidation()
+        public void ValidateTest()
         {
-            var gender = new Gender("");
-            _genderService.Insert(gender);
+            var gender = new Gender();
+
+            _service.Insert(gender);
+
         }
 
         [TestMethod]
         public void IntegratedTest()
         {
-            var gender = new Gender("Female");
-            _genderService.Insert(gender);
+            var gender = new Gender()
+            {
+                Description = "Indefinido"
+            };
+
+            _service.Insert(gender);
         }
     }
 }
