@@ -25,8 +25,22 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (!Name.Valid) throw new ArgumentException("O Nome está inválido.");
-            if (!Email.Valid) throw new ArgumentException("O Email está inválido.");
+            if (!Name.Valid) 
+                throw new ArgumentException("O Nome está inválido.");
+            if (!Email.Valid) 
+                throw new ArgumentException("O Email está inválido.");
+            
+            if (String.IsNullOrWhiteSpace(Password))
+                throw new ArgumentNullException("Senha não foi preenchido");
+
+            if (Password.Length < 8)
+                throw new ArgumentException("Senha não pode ser menor que 8 caracteres");
+
+            if (Birthday == null)
+                throw new ArgumentNullException("Data de Nascimento não foi preenchido");
+
+            if (Birthday == DateTime.MinValue)
+                throw new ArgumentException("Data de Nascimento é inválido");
         }
     }
 }
