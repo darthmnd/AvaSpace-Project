@@ -12,7 +12,7 @@ namespace AvaSpace.Domain.Entities
             Avatar = new Midia();
         }
         public Name Name { get;  set; }
-        public Email Email { get; private set; }
+        public Email Email { get;  set; }
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
         public Guid GenderId { get; set; }
@@ -40,6 +40,15 @@ namespace AvaSpace.Domain.Entities
 
             if (Birthday == DateTime.MinValue)
                 throw new ArgumentException("Data de Nascimento é inválido");
+
+            if (GenderId == Guid.Empty)
+                throw new ArgumentNullException("'GenderId' não foi preenchido");
+
+            if (CoverId == Guid.Empty)
+                throw new ArgumentNullException("'CoverId' não foi preenchido");
+
+            if (AvatarId == Guid.Empty)
+                throw new ArgumentNullException("'AvatarId' não foi preenchido");
         }
     }
 }
