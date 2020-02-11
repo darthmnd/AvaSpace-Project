@@ -7,6 +7,8 @@ namespace AvaSpace.Domain.Entities
         public User Sender { get; set; }
         public User Receiver { get; set; }
         public InviteStatus Status { get; set; }
+        public Guid ReceiverId { get; set; }
+        public Guid SenderId { get; set; }
 
         public override void Validate()
         {
