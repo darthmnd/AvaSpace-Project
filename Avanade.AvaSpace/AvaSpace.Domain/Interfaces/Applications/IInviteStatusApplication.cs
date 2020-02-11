@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AvaSpace.Domain.Interfaces.Applications
 {
-    public interface IIviteStatusApplication: IApplicationBase<InviteStatus>
+    public interface IInviteStatusApplication: IApplicationBase<InviteStatus>
     {
     }
 }
