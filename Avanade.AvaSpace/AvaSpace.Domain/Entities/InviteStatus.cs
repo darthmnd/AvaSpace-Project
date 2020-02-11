@@ -8,7 +8,7 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentException("A Descrição do Status deve ser passada.");
+            if (String.IsNullOrWhiteSpace(Description)) throw new ArgumentNullException("'Description' não foi preenchido");
         }
     }
 }
