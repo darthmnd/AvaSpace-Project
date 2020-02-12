@@ -1,8 +1,8 @@
-﻿using Gama.RedeSocial.Domain.Entities;
-using Gama.RedeSocial.Domain.Interfaces.Applications;
-using Gama.RedeSocial.Domain.Interfaces.Services;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
+using AvaSpace.Domain.Interfaces.Services;
 
-namespace Gama.RedeSocial.Application
+namespace AvaSpace.Application
 {
     public class LikeApplication : ApplicationBase<Like>, ILikeApplication
     {
