@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaSpace.Application", "Ava
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaSpace.Test", "AvaSpace.Test\AvaSpace.Test.csproj", "{F8DA85AB-2B8C-462E-9BB7-18762E804EC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{6908B2F6-E7F4-4C46-8C7B-0AA1071CE541}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{F8DA85AB-2B8C-462E-9BB7-18762E804EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8DA85AB-2B8C-462E-9BB7-18762E804EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8DA85AB-2B8C-462E-9BB7-18762E804EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6908B2F6-E7F4-4C46-8C7B-0AA1071CE541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6908B2F6-E7F4-4C46-8C7B-0AA1071CE541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6908B2F6-E7F4-4C46-8C7B-0AA1071CE541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6908B2F6-E7F4-4C46-8C7B-0AA1071CE541}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{D660B1A9-F793-4B84-8B9F-C90E82E4001C} = {C334C4DB-83C7-482D-ABF9-F430C9DC57BB}
 		{BE47F889-E0F9-4446-876A-22E9698215F0} = {57D336F7-8CE7-4F96-997A-DB2E2FE27E07}
 		{F8DA85AB-2B8C-462E-9BB7-18762E804EC9} = {DD5E1A48-A582-4F1A-BAFD-65ACDE0F61EF}
+		{6908B2F6-E7F4-4C46-8C7B-0AA1071CE541} = {0F2727B4-5F67-4EE0-994D-6116DFB9EAE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE264CDC-9CA6-4C33-B6F4-93F6A6DABD0B}

@@ -6,19 +6,26 @@ namespace AvaSpace.Domain.Entities
 {
     public class Gallery : BaseEntity
     {
-        public Gallery(string name)
+        public Gallery()
         {
-            Name = new Name(name);
+            User = new User();
+            Midias = new List<Midia>();
         }
+
         public Name Name { get; private set; }
-        public Guid AuthorId { get; set; }
-        public User Author { get; set; }
         public List<Midia> Midias { get; set; }
+
+        public Guid UserId { get; set; }
+        public User User { get; set; }
 
         public override void Validate()
         {
-            if (Author == null) throw new ArgumentNullException("O Autor deve ser preenchido.");
-            if (Name == null) throw new ArgumentNullException("O Nome deve ser preenchido.");
+            if (String.IsNullOrEmpty(Name))
+                throw new ArgumentNullException("'Name' não foi preenchido");
+
+            if (UserId == Guid.Empty)
+                throw new ArgumentNullException("'AuthorId' não foi preenchido");
+
         }
     }
 }
