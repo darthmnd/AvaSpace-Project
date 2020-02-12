@@ -1,5 +1,4 @@
 ﻿
-using AvaSpace.Domain.Entities;
 using System;
 
 namespace Gama.RedeSocial.Domain.Entities

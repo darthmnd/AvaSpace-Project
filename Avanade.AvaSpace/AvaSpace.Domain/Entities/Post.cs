@@ -1,5 +1,4 @@
-﻿using AvaSpace.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Gama.RedeSocial.Domain.Entities
@@ -12,9 +11,10 @@ namespace Gama.RedeSocial.Domain.Entities
             Likes = new List<Like>();
             Comments = new List<Post>();
             Author = new User();
+            ParentId = null;
         }
 
-        public Guid ParentId { get; set; }
+        public Guid? ParentId { get; set; }
         public string Text { get; set; }
         public List<Midia> Midias { get; set; }
         public List<Like> Likes { get; set; }
