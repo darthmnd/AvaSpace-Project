@@ -21,9 +21,9 @@ namespace AvaSpace.API.Controllers
         }
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<User> Get()
+        public User Get()
         {
-            return _app.Get();
+            return _app.Get(new Guid("17B4286D-57E7-48DD-A734-021F73DBA611"));
         }
 
         // GET api/<controller>/5

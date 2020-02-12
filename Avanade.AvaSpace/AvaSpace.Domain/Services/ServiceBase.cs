@@ -26,11 +26,6 @@ namespace AvaSpace.Domain.Services
             return _repositoryBase.Delete(id);
         }
 
-        public IEnumerable<TEntity> Get()
-        {
-            return _repositoryBase.Get();
-        }
-
         public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
         {
             return _repositoryBase.Get(predicate);
