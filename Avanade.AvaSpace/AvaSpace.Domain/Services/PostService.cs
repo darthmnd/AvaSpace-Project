@@ -4,11 +4,11 @@ using AvaSpace.Domain.Interfaces.Services;
 
 namespace AvaSpace.Domain.Services
 {
-    public class MidiaTypeService : ServiceBase<MidiaType>, IMidiaTypeService
+    public class PostService : ServiceBase<Post>, IPostService
     {
-        private readonly IMidiaTypeRepository _repository;
+        private readonly IPostRepository _repository;
 
-        public MidiaTypeService(IMidiaTypeRepository repository) : base(repository)
+        public PostService(IPostRepository repository) : base(repository)
         {
             _repository = repository;
         }

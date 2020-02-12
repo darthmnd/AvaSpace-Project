@@ -2,8 +2,7 @@
 
 namespace AvaSpace.Domain.Interfaces.Repositories
 {
-    public interface IMidiaRepository : IRepositoryBase<Midia>
+    public interface IPostRepository : IRepositoryBase<Post>
     {
-
     }
 }

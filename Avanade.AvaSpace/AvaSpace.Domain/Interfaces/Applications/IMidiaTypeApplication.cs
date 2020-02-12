@@ -1,11 +1,8 @@
-﻿using AvaSpace.Domain.Interfaces.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AvaSpace.Domain.Entities;
 
 namespace AvaSpace.Domain.Interfaces.Applications
 {
-    public interface IMidiaTypeApplication
+    public interface IMidiaTypeApplication : IApplicationBase<MidiaType>
     {
 
     }

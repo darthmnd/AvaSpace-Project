@@ -53,9 +53,6 @@ namespace AvaSpace.Repository.Repositories
             }
         }
 
-        public IEnumerable<User> Get(string name)
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }

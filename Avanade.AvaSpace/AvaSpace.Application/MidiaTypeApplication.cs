@@ -9,11 +9,11 @@ namespace AvaSpace.Application
 {
     public class MidiaTypeApplication : ApplicationBase<MidiaType>, IMidiaTypeApplication
     {
-        private readonly IMidiaTypeService _midiaTypeService;
-        public MidiaTypeApplication(IMidiaTypeService midiaTypeService) : base(midiaTypeService)
-        {
-            _midiaTypeService = midiaTypeService;
-        }
+        private readonly IMidiaTypeService _service;
 
+        public MidiaTypeApplication(IMidiaTypeService Service) : base(Service)
+        {
+            _service = Service;
+        }
     }
 }
