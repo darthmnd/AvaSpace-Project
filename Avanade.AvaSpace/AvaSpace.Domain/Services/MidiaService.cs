@@ -6,11 +6,11 @@ namespace AvaSpace.Domain.Services
 {
     public class MidiaService : ServiceBase<Midia>, IMidiaService
     {
+        private readonly IMidiaRepository _repository;
 
-        private readonly IMidiaRepository _midiaRepository;
-        public MidiaService(IMidiaRepository midiaRepository) : base(midiaRepository)
+        public MidiaService(IMidiaRepository repository) : base(repository)
         {
-            _midiaRepository = midiaRepository;
+            _repository = repository;
         }
 
     }

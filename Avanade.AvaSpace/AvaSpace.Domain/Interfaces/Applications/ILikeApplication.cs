@@ -2,7 +2,7 @@
 
 namespace AvaSpace.Domain.Interfaces.Applications
 {
-    public interface IMidiaApplication : IApplicationBase<Midia>
+    public interface ILikeApplication : IApplicationBase<Like>
     {
     }
 }

@@ -18,7 +18,7 @@ namespace AvaSpace.Domain.Entities
         public DateTime Birthday { get; set; }
         public Guid GenderId { get; set; }
         public Gender Gender { get; set; }
-        public Guid CoverId { get; set; }
+        public Guid? CoverId { get; set; }
         public Midia Cover { get; set; }
         public Guid AvatarId { get; set; }
         public Midia Avatar { get; set; }
@@ -45,9 +45,12 @@ namespace AvaSpace.Domain.Entities
 
             if (Birthday == DateTime.MinValue)
                 throw new ArgumentException("Data de Nascimento é inválido");
-
+            
             if (GenderId == Guid.Empty)
-                throw new ArgumentNullException("O gênero é obrigatório");
+                throw new ArgumentNullException("'GenderId' não foi preenchido");
+            
+            if (AvatarId == Guid.Empty)
+                throw new ArgumentNullException("'AvatarId' não foi preenchido");
         }
     }
 }

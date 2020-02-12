@@ -7,11 +7,11 @@ using System.Text;
 
 namespace AvaSpace.Application
 {
-    public class MidiaApplication : ApplicationBase<Midia>, IMidiaApplication
+    public class UserApplication : ApplicationBase<User>, IUserApplication
     {
-        private readonly IMidiaService _service;
+        private readonly IUserService _service;
 
-        public MidiaApplication(IMidiaService Service) : base(Service)
+        public UserApplication(IUserService Service) : base(Service)
         {
             _service = Service;
         }

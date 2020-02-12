@@ -35,7 +35,7 @@ namespace AvaSpace.Test
         {
             var gender = new Gender() 
             { 
-                Description = "Prefiro não definir."
+                Description = "Unicornio"
             };
 
             _service.Insert(gender);
