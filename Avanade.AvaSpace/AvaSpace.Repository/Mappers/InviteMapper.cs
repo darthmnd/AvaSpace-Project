@@ -9,7 +9,7 @@ namespace AvaSpace.Repository.Mappers
             ToTable("TB_INVITE");
             Map(e => e.SenderId).ToColumn("ID_SENDER");
             Map(e => e.ReceiverId).ToColumn("ID_RECEIVER");
-            Map(e => e.StatusId).ToColumn("ID_STATUS");
+            Map(e => e.InviteStatusId).ToColumn("ID_STATUS");
         }
     }
 }

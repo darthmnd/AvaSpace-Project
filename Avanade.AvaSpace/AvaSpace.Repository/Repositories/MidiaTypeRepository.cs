@@ -4,7 +4,7 @@ using AvaSpace.Domain.Interfaces.Repositories;
 
 namespace AvaSpace.Repository.Repositories
 {
-    class MidiaTypeRepository : RepositoryBase<MidiaType>, IMidiaTypeRepository
+    public class MidiaTypeRepository : RepositoryBase<MidiaType>, IMidiaTypeRepository
     {
     }
 }

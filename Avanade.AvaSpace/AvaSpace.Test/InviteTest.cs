@@ -26,16 +26,16 @@ namespace AvaSpace.Test
         {
             var invitestatus = new InviteStatus();
 
-            var invite = new Invite
-            {
-                SenderId = Guid.NewGuid(),
-                ReceiverId = Guid.NewGuid(),
-                InviteStatus = "aguardando"
-            };
+            //var invite = new Invite
+            //{
+            //    SenderId = Guid.NewGuid(),
+            //    ReceiverId = Guid.NewGuid(),
+            //    InviteStatus = "aguardando"
+            //};
 
-            var id = _service.Insert(invite);
+            //var id = _service.Insert(invite);
 
-            _service.Delete(id);
+            //_service.Delete(id);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace AvaSpace.Test
             var gallery = new Gallery()
             {
                 Name = "TESTE",
-                UserId = userId
+                AuthorId = userId
             };
 
             var id = _service.Insert(gallery);
