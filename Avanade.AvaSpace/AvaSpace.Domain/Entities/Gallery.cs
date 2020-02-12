@@ -1,31 +1,24 @@
-﻿using AvaSpace.Domain.Entities.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace AvaSpace.Domain.Entities
 {
     public class Gallery : BaseEntity
     {
-        public Gallery()
+        public Gallery() { }
+        public Gallery(string name)
         {
-            User = new User();
-            Midias = new List<Midia>();
+            Name = name;
         }
-
-        public Name Name { get; private set; }
+        public string Name { get; private set; }
+        public Guid AuthorId { get; set; }
+        public User Author { get; set; }
         public List<Midia> Midias { get; set; }
-
-        public Guid UserId { get; set; }
-        public User User { get; set; }
 
         public override void Validate()
         {
-            if (String.IsNullOrEmpty(Name))
-                throw new ArgumentNullException("'Name' não foi preenchido");
-
-            if (UserId == Guid.Empty)
-                throw new ArgumentNullException("'AuthorId' não foi preenchido");
-
+            if (Author == null) throw new ArgumentNullException("O Autor deve ser preenchido.");
+            if (string.IsNullOrWhiteSpace(Name)) throw new ArgumentNullException("O Nome deve ser preenchido.");
         }
     }
 }

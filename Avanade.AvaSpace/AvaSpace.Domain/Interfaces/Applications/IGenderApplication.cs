@@ -5,10 +5,7 @@ using System.Text;
 
 namespace AvaSpace.Domain.Interfaces.Applications
 {
-    interface IGenderApplication
+    public interface IGenderApplication : IApplicationBase<Gender>
     {
-        public interface IGenderApplication : IApplicationBase<Gender>
-        {
-        }
     }
 }

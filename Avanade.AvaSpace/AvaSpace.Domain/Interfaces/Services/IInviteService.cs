@@ -7,8 +7,7 @@ using System.Collections.Generic;
 namespace Gama.RedeSocial.Domain.Interfaces.Services
 {
     public interface IInviteService : IServiceBase<Invite>
-    
-        {
+    {
         IEnumerable<Invite> GetByUserId(Guid userId);
 
     }

@@ -8,5 +8,4 @@
     <ProjectReference Include="..\AvaSpace.Domain\AvaSpace.Domain.csproj" />
   </ItemGroup>
 
-
 </Project>

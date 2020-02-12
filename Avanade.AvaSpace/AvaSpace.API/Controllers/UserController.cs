@@ -3,74 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AvaSpace.API.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    [ApiController]
+    public class UserController : ControllerBase
     {
-        [ApiController]
-        [Route("[controller]")]
-        public class UserController : Controller
+        private readonly IUserApplication _app;
+        public UserController(IUserApplication app)
         {
-            private readonly IUserService _userService;
-            ILogger _logger;
-            public UserController(IUserService userService, ILogger<UserController> logger)
-            {
-                _logger = logger;
-                _userService = userService;
-            }
+            _app = app;
+        }
+        // GET: api/<controller>
+        [HttpGet]
+        public User Get()
+        {
+            return _app.Get(new Guid("17B4286D-57E7-48DD-A734-021F73DBA611"));
+        }
 
-            /// <summary>
-            /// Returns a json of all users in database.
-            /// </summary>
-            [HttpGet]
-            public async Task<IEnumerable<User>> Get()
-            {
-                _logger.LogInformation("Method Get all users executed. DateTime: " + DateTime.Now.ToString());
-                var users = await _userService.ReadAsync();
-                return users;
-            }
+        // GET api/<controller>/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
 
-            /// <summary>
-            /// Returns the user information found with the id passed.
-            /// </summary>
-            [HttpGet("{id}")]
-            public async Task<IEnumerable<User>> Get(int id)
-            {
-                var user = await _userService.ReadAsync(id);
-                return user;
-            }
+        // POST api/<controller>
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+        }
 
-            /// <summary>
-            /// Create a new user.
-            /// </summary>
-            [HttpPost]
-            public int Post([FromBody]User user)
-            {
-                var qtd = _userService.Create(user);
-                return qtd;
-            }
+        // PUT api/<controller>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
 
-            // PUT api/<controller>/5
-            [HttpPut]
-            public async Task<int> Put([FromBody]User user)
-            {
-                var qtd = _userService.UpdateAsync(user);
-                return await qtd;
-            }
-
-            // DELETE api/<controller>/5
-            [HttpDelete("{id}")]
-            public async Task<int> Delete(int id)
-            {
-                var qtd = _userService.DeactivateAsync(id);
-                return await qtd;
-            }
+        // DELETE api/<controller>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
         }
     }
 }
