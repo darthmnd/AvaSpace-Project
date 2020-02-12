@@ -6,22 +6,24 @@ namespace AvaSpace.Domain.Entities
     public class Gallery : BaseEntity
     {
         public Gallery() {
-            Author = new User();
+            User = new User();
             Midias = new List<Midia>();
         }
-        public Gallery(string name)
-        {
-            Name = name;
-        }
-        public string Name { get; private set; }
-        public Guid AuthorId { get; set; }
-        public User Author { get; set; }
+
+        public string Name { get; set; }
         public List<Midia> Midias { get; set; }
+
+        public Guid UserId { get; set; }
+        public User User { get; set; }
 
         public override void Validate()
         {
-            if (Author == null) throw new ArgumentNullException("O Autor deve ser preenchido.");
-            if (string.IsNullOrWhiteSpace(Name)) throw new ArgumentNullException("O Nome deve ser preenchido.");
+            if (String.IsNullOrEmpty(Name))
+                throw new ArgumentNullException("'Name' não foi preenchido");
+
+            if (UserId == Guid.Empty)
+                throw new ArgumentNullException("'AuthorId' não foi preenchido");
+
         }
     }
 }
