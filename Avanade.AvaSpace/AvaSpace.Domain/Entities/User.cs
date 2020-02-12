@@ -18,7 +18,7 @@ namespace AvaSpace.Domain.Entities
         public DateTime Birthday { get; set; }
         public Guid GenderId { get; set; }
         public Gender Gender { get; set; }
-        public Guid CoverId { get; set; }
+        public Guid? CoverId { get; set; }
         public Midia Cover { get; set; }
         public Guid AvatarId { get; set; }
         public Midia Avatar { get; set; }
