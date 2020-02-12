@@ -8,6 +8,7 @@ namespace AvaSpace.Domain.Interfaces
     public interface IBase<TEntity> where TEntity : BaseEntity
     {
         Guid Insert(TEntity entity);
+        IEnumerable<TEntity> Get();
         IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate);
         TEntity Get(Guid id);
         bool Update(TEntity entity);

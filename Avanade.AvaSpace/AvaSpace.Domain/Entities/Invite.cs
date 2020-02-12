@@ -14,8 +14,6 @@ namespace AvaSpace.Domain.Entities
         public User Receiver { get; set; }
         public Guid StatusId { get; set; }
         public InviteStatus Status { get; set; }
-        public Guid ReceiverId { get; set; }
-        public Guid SenderId { get; set; }
 
         public override void Validate()
         {

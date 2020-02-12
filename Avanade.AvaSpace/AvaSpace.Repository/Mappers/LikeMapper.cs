@@ -1,4 +1,5 @@
 ﻿using AvaSpace.Domain.Entities;
+using Gama.RedeSocial.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

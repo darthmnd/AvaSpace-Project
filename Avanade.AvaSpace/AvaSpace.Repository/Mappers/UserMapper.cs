@@ -7,8 +7,8 @@ namespace AvaSpace.Repository.Mappers
         public UserMapper()
         {
             ToTable("TB_USER");
-            Map(e => e.Name.FullName).ToColumn("NM_USER");
-            Map(e => e.Email.EmailAddress).ToColumn("DS_EMAIL");
+            Map(e => e.Name).ToColumn("NM_USER");
+            Map(e => e.Email).ToColumn("DS_EMAIL");
             Map(e => e.Password).ToColumn("DS_PASSWORD");
             Map(e => e.Birthday).ToColumn("DT_BIRTHDAY");
             Map(e => e.GenderId).ToColumn("ID_GENDER");

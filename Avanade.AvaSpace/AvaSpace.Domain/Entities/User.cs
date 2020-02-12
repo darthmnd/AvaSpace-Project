@@ -1,27 +1,19 @@
-﻿using AvaSpace.Domain.Entities.ValueObjects;
-using System;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace AvaSpace.Domain.Entities
 {
     public class User : BaseEntity
     {
-        public User(User user) 
+        public User() 
         {
-            Name = new Name(user.Name.FullName);
-            Email = new Email(user.Email.EmailAddress);
-            Birthday = user.Birthday;
-            Gender = new Gender(user.Gender.Description);
+            Gender = new Gender();
+            Avatar = new Midia();
+            Cover = new Midia();
         }
         
-        public User (string fullName, string emailAddress, DateTime birthDate, string gender)
-        {
-            Name = new Name(fullName);
-            Email = new Email(emailAddress);
-            Birthday = birthDate;
-            Gender = new Gender(gender);
-        }
-        public Name Name { get; private set; }
-        public Email Email { get; private set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
         public Guid GenderId { get; set; }
@@ -33,12 +25,16 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (!Name.Valid) 
-                throw new ArgumentException("O Nome está inválido.");
-            if (!Email.Valid) 
+            if (string.IsNullOrWhiteSpace(Name)) 
+                throw new ArgumentNullException("O Nome está inválido.");
+
+            if (string.IsNullOrWhiteSpace(Email))
+                throw new ArgumentNullException("O Email está inválido.");
+
+            if (!Regex.IsMatch(Email ?? string.Empty, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
                 throw new ArgumentException("O Email está inválido.");
             
-            if (String.IsNullOrWhiteSpace(Password))
+            if (string.IsNullOrWhiteSpace(Password))
                 throw new ArgumentNullException("Senha não foi preenchido");
 
             if (Password.Length < 8)
@@ -49,6 +45,9 @@ namespace AvaSpace.Domain.Entities
 
             if (Birthday == DateTime.MinValue)
                 throw new ArgumentException("Data de Nascimento é inválido");
+
+            if (GenderId == Guid.Empty)
+                throw new ArgumentNullException("O gênero é obrigatório");
         }
     }
 }
