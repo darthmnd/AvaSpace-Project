@@ -1,14 +1,10 @@
-﻿using Gama.RedeSocial.Domain.Entities;
-using Gama.RedeSocial.Domain.Interfaces.Repositories;
-using System;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Repositories;
+using AvaSpace.Repository;
 
-namespace Gama.RedeSocial.Infrastructure.Persistence.Repository.Repositories
+namespace AvaSpace.Infrastructure.Persistence.Repository.Repositories
 {
     public class PostRespository : RepositoryBase<Post>, IPostRepository
     {
-        public override Post Get(Guid id)
-        {
-            
-        }
     }
 }

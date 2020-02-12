@@ -1,7 +1,7 @@
-﻿
+﻿using AvaSpace.Domain.Interfaces.Services;
 using System;
 
-namespace Gama.RedeSocial.Domain.Entities
+namespace AvaSpace.Domain.Entities
 {
     public class Like : BaseEntity
     {

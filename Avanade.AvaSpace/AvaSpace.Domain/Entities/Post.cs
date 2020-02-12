@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Gama.RedeSocial.Domain.Entities
+namespace AvaSpace.Domain.Entities
 {
     public class Post : BaseEntity
     {

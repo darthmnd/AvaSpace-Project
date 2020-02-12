@@ -1,6 +1,7 @@
-﻿using Gama.RedeSocial.Domain.Entities;
+﻿
+using AvaSpace.Domain.Entities;
 
-namespace Gama.RedeSocial.Domain.Interfaces.Services
+namespace AvaSpace.Domain.Interfaces.Services
 {
     public interface IPostService : IServiceBase<Post>
     {

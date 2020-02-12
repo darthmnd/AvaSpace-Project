@@ -1,7 +1,8 @@
-﻿using Gama.RedeSocial.Domain.Entities;
-using Gama.RedeSocial.Domain.Interfaces.Repositories;
+﻿using Avaspace.Domain.Interfaces.Repositories;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Repository;
 
-namespace Gama.RedeSocial.Infrastructure.Persistence.Repository.Repositories
+namespace AvaSpace.Infrastructure.Persistence.Repository.Repositories
 {
     public class LikeRepository : RepositoryBase<Like>, ILikeRepository
     {

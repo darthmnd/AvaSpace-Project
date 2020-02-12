@@ -1,6 +1,6 @@
-﻿using Gama.RedeSocial.Domain.Entities;
+﻿using AvaSpace.Domain.Entities;
 
-namespace Gama.RedeSocial.Domain.Interfaces.Repositories
+namespace AvaSpace.Domain.Interfaces.Repositories
 {
     public interface IPostRepository : IRepositoryBase<Post>
     {

@@ -1,9 +1,7 @@
-﻿using Gama.RedeSocial.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using AvaSpace.Domain.Entities;
 
-namespace Gama.RedeSocial.Domain.Interfaces.Services
+namespace AvaSpace.Domain.Interfaces.Services
 {
     public interface ILikeService : IServiceBase<Like>
     {

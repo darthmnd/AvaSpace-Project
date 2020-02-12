@@ -1,13 +1,11 @@
-﻿using Gama.RedeSocial.Domain.Entities;
-using Gama.RedeSocial.Domain.Interfaces.Services;
-using Gama.RedeSocial.Domain.Services;
-using Gama.RedeSocial.Infrastructure.Persistence.Repository.Repositories;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Services;
+using AvaSpace.Domain.Services;
+using AvaSpace.Infrastructure.Persistence.Repository.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Gama.RedeSocial.Test
+namespace AvaSpace.Test
 {
     [TestClass]
     public class LikeTest : BaseTest
