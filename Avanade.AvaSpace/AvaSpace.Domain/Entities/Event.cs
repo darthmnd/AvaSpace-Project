@@ -12,6 +12,7 @@ namespace AvaSpace.Domain.Entities
         }
         public DateTime EventDate { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public List<PersonEvent> Persons { get; set; }
         public Guid AuthorId { get; set; }
         public User Author { get; set; }
