@@ -10,5 +10,6 @@ namespace AvaSpace.Domain.Entities
         {
             if (String.IsNullOrWhiteSpace(Description)) throw new ArgumentNullException("'Description' não foi preenchido");
         }
+
     }
 }

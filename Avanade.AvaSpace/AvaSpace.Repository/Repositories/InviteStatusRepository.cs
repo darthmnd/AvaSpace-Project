@@ -1,13 +1,9 @@
 ﻿using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Repositories;
-using AvaSpace.Repository;
-using System;
-using System.Collections.Generic;
 
-public class InviteStatusRepository : RepositoryBase<InviteStatus>, IInviteStatusRepository
+namespace AvaSpace.Repository.Repositories
 {
-    public IEnumerable<Invite> GetByUserId(Guid userId)
+    public class InviteStatusRepository : RepositoryBase<InviteStatus>, IInviteStatusRepository
     {
-        throw new NotImplementedException();
     }
 }
