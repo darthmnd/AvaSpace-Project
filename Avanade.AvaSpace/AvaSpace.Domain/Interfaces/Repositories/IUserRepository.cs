@@ -5,6 +5,6 @@ namespace AvaSpace.Domain.Interfaces.Repositories
 {
     public interface IUserRepository : IRepositoryBase<User>
     {
-        IEnumerable<User> Get(string name);
+        IEnumerable<User> GetByName(string name);
     }
 }

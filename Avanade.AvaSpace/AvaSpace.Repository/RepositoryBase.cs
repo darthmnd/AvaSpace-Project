@@ -32,7 +32,7 @@ namespace AvaSpace.Repository
         {
             using (var db = SqlConnectionFactory.Create())
             {
-               return db.Query<T>(sql, parameters);
+                return db.Query<T>(sql, parameters);
             }
         }
 
@@ -52,7 +52,7 @@ namespace AvaSpace.Repository
             }
         }
 
-        public  virtual Guid Insert(TEntity entity)
+        public virtual Guid Insert(TEntity entity)
         {
             using (var cn = SqlConnectionFactory.Create())
             {
@@ -66,6 +66,8 @@ namespace AvaSpace.Repository
         {
             using (var cn = SqlConnectionFactory.Create())
             {
+                entity.DateUpdated = DateTime.Now;
+
                 return cn.Update(entity);
             }
         }
