@@ -1,24 +1,22 @@
 using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
-using AvaSpace.Repository;
+using AvaSpace.Repository.Mappers;
 using AvaSpace.Repository.Repositories;
+using Dapper.FluentMap;
+using Dapper.FluentMap.Dommel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace AvaSpace.Test
 {
     [TestClass]
-    public class GenderTest
+    public class GenderTest : BaseTest
     {
         private readonly IGenderService _service;
-
         public GenderTest()
         {
-            RegisterMappers.Register();
-
             var repository = new GenderRepository();
-
             _service = new GenderService(repository);
         }
 
@@ -31,11 +29,14 @@ namespace AvaSpace.Test
             _service.Insert(gender);
 
         }
-
+        
         [TestMethod]
-        public void IntegratedTest()
+        public override void IntegratedTest()
         {
-            var gender = new Gender("Indefinido");
+            var gender = new Gender() 
+            { 
+                Description = "Unicornio"
+            };
 
             _service.Insert(gender);
         }

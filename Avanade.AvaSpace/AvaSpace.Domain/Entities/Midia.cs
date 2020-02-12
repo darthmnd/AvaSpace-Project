@@ -8,14 +8,21 @@ namespace AvaSpace.Domain.Entities
         {
             MidiaType = new MidiaType();
         }
+        public string Description { get; set; }
         public Guid MidiaTypeId { get; set; }
         public MidiaType MidiaType { get; set; }
         public string Path { get; set; }
 
         public override void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Path)) throw new ArgumentException("O Caminho da imagem deve ser passado.");
-            if (MidiaType == null) throw new ArgumentException("O tipo da Midia deve ser passado.");
+            if (String.IsNullOrWhiteSpace(Description))
+                throw new ArgumentNullException("'Description' não foi preenchido");
+
+            if (MidiaTypeId == Guid.Empty)
+                throw new ArgumentNullException("'MidiaTypeId' não foi preenchido");
+
+            if (String.IsNullOrWhiteSpace(Path))
+                throw new ArgumentNullException("'Path' não foi preenchido");
         }
     }
 }

@@ -5,5 +5,6 @@ namespace AvaSpace.Repository.Repositories
 {
     public class GenderRepository : RepositoryBase<Gender>, IGenderRepository
     {
+
     }
 }

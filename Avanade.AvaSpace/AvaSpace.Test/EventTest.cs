@@ -1,33 +1,138 @@
 ﻿using AvaSpace.Domain.Entities;
-using AvaSpace.Domain.Entities.ValueObjects;
 using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
-using AvaSpace.Repository;
 using AvaSpace.Repository.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AvaSpace.Test
 {
     [TestClass]
-    public class EventTest
+    public class EventTest : BaseTest
     {
         private readonly IEventService _eventService;
-        public EventTest() 
+        public EventTest()
         {
-            RegisterMappers.Register();
             var repository = new EventRepository();
             _eventService = new EventService(repository);
         }
 
         [TestMethod]
-        public void IntegratedMethod()
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void AuthorIdInvalid() 
         {
-            User author = new User("Nath","nathalispinula@gmail.com", DateTime.Now, "Female");
-            Address address = new Address("02751-000", "Rua Xyz.", 256, "ZN", "TESTE");
-            Event evento = new Event(author, "Evento", address, DateTime.Now);
+
+            Event evento = new Event()
+            {
+                Name = "Evento Teste 2",
+                Description = "este evento serve para x y z.",
+                EventDate = DateTime.Now,
+                Street = "Rua Teste ABC",
+                Number = 256,
+                Complement = "A",
+                Neighborhood = "TESTE",
+                ZipCode = "02751-000",
+                AuthorId = Guid.Empty
+            };
+
+            _eventService.Insert(evento);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void EventDateInvalid()
+        {
+            Event evento = new Event()
+            {
+                Name = "Evento Teste 2",
+                Description = "este evento serve para x y z.",
+                EventDate = DateTime.MinValue,
+                Street = "Rua Teste ABC",
+                Number = 256,
+                Complement = "A",
+                Neighborhood = "TESTE",
+                ZipCode = "02751-000",
+                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+            };
+
+            _eventService.Insert(evento);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DescriptionInvalid()
+        {
+            Event evento = new Event()
+            {
+                Name = "Evento Teste 2",
+                Description = "",
+                EventDate = DateTime.Now,
+                Street = "Rua Teste ABC",
+                Number = 256,
+                Complement = "A",
+                Neighborhood = "TESTE",
+                ZipCode = "02751-000",
+                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+            };
+
+            _eventService.Insert(evento);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void NumberInvalid()
+        {
+            Event evento = new Event()
+            {
+                Name = "Evento Teste 2",
+                Description = "Eventooo",
+                EventDate = DateTime.Now,
+                Street = "Rua Teste ABC",
+                Number = -1,
+                Complement = "A",
+                Neighborhood = "TESTE",
+                ZipCode = "02751-000",
+                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+            };
+
+            _eventService.Insert(evento);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CepInvalid()
+        {
+            Event evento = new Event()
+            {
+                Name = "Evento Teste 2",
+                Description = "Eventooo",
+                EventDate = DateTime.Now,
+                Street = "Rua Teste ABC",
+                Number = 256,
+                Complement = "A",
+                Neighborhood = "TESTE",
+                ZipCode = "02751000",
+                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+            };
+
+            _eventService.Insert(evento);
+        }
+
+        [TestMethod]
+        public override void IntegratedTest()
+        {
+            Event evento = new Event()
+            {
+                Name = "Evento Teste 2",
+                Description = "este evento serve para x y z.",
+                EventDate = DateTime.Now,
+                Street = "Rua Teste ABC",
+                Number = 256,
+                Complement = "A",
+                Neighborhood = "TESTE",
+                ZipCode = "02751-000",
+                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+            };
             _eventService.Insert(evento);
         }
     }

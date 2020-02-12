@@ -12,7 +12,7 @@ namespace AvaSpace.Repository
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> 
         where TEntity : BaseEntity
     {
-        public bool Delete(Guid id)
+        public virtual bool Delete(Guid id)
         {
             using (var cn = SqlConnectionFactory.Create())
             {
@@ -32,11 +32,11 @@ namespace AvaSpace.Repository
         {
             using (var db = SqlConnectionFactory.Create())
             {
-               return db.Query<T>(sql, parameters);
+                return db.Query<T>(sql, parameters);
             }
         }
 
-        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
+        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
         {
             using (var cn = SqlConnectionFactory.Create())
             {
@@ -44,7 +44,7 @@ namespace AvaSpace.Repository
             }
         }
 
-        public TEntity Get(Guid id)
+        public virtual TEntity Get(Guid id)
         {
             using (var cn = SqlConnectionFactory.Create())
             {
@@ -52,7 +52,7 @@ namespace AvaSpace.Repository
             }
         }
 
-        public Guid Insert(TEntity entity)
+        public virtual Guid Insert(TEntity entity)
         {
             using (var cn = SqlConnectionFactory.Create())
             {
@@ -62,10 +62,12 @@ namespace AvaSpace.Repository
             }
         }
 
-        public bool Update(TEntity entity)
+        public virtual bool Update(TEntity entity)
         {
             using (var cn = SqlConnectionFactory.Create())
             {
+                entity.DateUpdated = DateTime.Now;
+
                 return cn.Update(entity);
             }
         }

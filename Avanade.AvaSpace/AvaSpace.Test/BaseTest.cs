@@ -4,7 +4,7 @@ namespace AvaSpace.Test
 {
     public abstract class BaseTest
     {
-        public BaseTest()
+        public BaseTest() 
         {
             RegisterMappers.Register();
         }

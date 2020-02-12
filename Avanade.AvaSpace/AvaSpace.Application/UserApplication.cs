@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AvaSpace.Application
 {
-    class UserApplication : ApplicationBase<User>, IUserApplication
+    public class UserApplication : ApplicationBase<User>, IUserApplication
     {
         private readonly IUserService _service;
 
