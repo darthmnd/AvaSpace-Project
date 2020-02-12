@@ -3,7 +3,7 @@ using AvaSpace.Domain.Interfaces.Repositories;
 
 namespace AvaSpace.Repository.Repositories
 {
-    public class LikeRepository : RepositoryBase<Like>, ILikeRepository
+    public class PostRepository : RepositoryBase<Post>, IPostRepository
     {
     }
 }

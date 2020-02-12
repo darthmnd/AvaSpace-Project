@@ -1,7 +1,7 @@
 ﻿using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
-using AvaSpace.Infrastructure.Persistence.Repository.Repositories;
+using AvaSpace.Repository.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

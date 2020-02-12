@@ -15,8 +15,6 @@ namespace AvaSpace.Domain.Entities
         public DateTime DateCreate { get; set; }
         public DateTime DateUpdate { get; set; }
         public bool Active { get; set; }
-        public DateTime DateUpdated { get; set; }
-
         public abstract void Validate();
     }
 }

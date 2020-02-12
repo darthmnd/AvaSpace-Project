@@ -2,49 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AvaSpace.Domain.Entities;
-using AvaSpace.Domain.Interfaces.Applications;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace AvaSpace.API.Controllers
+namespace AvaSpace.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserApplication _app;
-        public UserController(IUserApplication app)
-        {
-            _app = app;
-        }
-        // GET: api/<controller>
+        // GET: api/User
         [HttpGet]
-        public void Get()
+        public IEnumerable<string> Get()
         {
+            return new string[] { "value1", "value2" };
         }
 
-        // GET api/<controller>/5
+        // GET: api/User/5
         [HttpGet("{id}")]
-        public User Get(Guid id)
+        public string Get(int id)
         {
-            return _app.Get(new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")); ;
+            return "value";
         }
 
-        // POST api/<controller>
+        // POST: api/User
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<controller>/5
+        // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<controller>/5
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
