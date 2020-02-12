@@ -2,7 +2,7 @@
 
 namespace AvaSpace.Domain.Interfaces.Applications
 {
-    interface IGalleryApplication : IApplicationBase<Gallery>
+    public interface IGalleryApplication : IApplicationBase<Gallery>
     {
     }
 }
