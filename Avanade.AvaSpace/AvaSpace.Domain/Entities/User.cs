@@ -45,9 +45,12 @@ namespace AvaSpace.Domain.Entities
 
             if (Birthday == DateTime.MinValue)
                 throw new ArgumentException("Data de Nascimento é inválido");
-
+            
             if (GenderId == Guid.Empty)
-                throw new ArgumentNullException("O gênero é obrigatório");
+                throw new ArgumentNullException("'GenderId' não foi preenchido");
+            
+            if (AvatarId == Guid.Empty)
+                throw new ArgumentNullException("'AvatarId' não foi preenchido");
         }
     }
 }
