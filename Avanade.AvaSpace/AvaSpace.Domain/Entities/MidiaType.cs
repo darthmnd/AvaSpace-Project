@@ -2,8 +2,8 @@
 
 namespace AvaSpace.Domain.Entities
 {
-   public class MidiaType : BaseEntity
-   {
+    public class MidiaType : BaseEntity
+    {
         public string Description { get; set; }
         public string Extensions { get; set; }
 
@@ -15,4 +15,5 @@ namespace AvaSpace.Domain.Entities
             if (String.IsNullOrWhiteSpace(Extensions))
                 throw new ArgumentNullException("'Extensions' não foi preenchido");
         }
+    }
 }

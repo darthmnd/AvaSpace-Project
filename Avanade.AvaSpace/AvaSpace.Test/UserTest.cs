@@ -148,8 +148,8 @@ namespace AvaSpace.Test
         {
             User user = new User()
             {
-                Name = "IntegratedTest",
-                Email = "IntegratedTest@gmail.com",
+                Name = "IntegratedTeste",
+                Email = "IntegratedTeste@gmail.com",
                 Birthday = DateTime.Now,
                 GenderId = new Guid("E6C82CD5-8C61-4850-A54D-42C8E2A7AA19"),
                 CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),

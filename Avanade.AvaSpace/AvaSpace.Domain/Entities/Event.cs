@@ -17,19 +17,26 @@ namespace AvaSpace.Domain.Entities
         public Guid AuthorId { get; set; }
         public User Author { get; set; }
         public string ZipCode { get; set; }
-
         public string Street { get; set; }
-
         public int Number { get; set; }
-
         public string Neighborhood { get; set; }
-
         public string Complement { get; set; }
         public override void Validate()
         {
-            if (Author.Id == Guid.Empty) throw new ArgumentException("O Usuário criador do evento é obrigatório");
-            if (EventDate == DateTime.MinValue) throw new ArgumentException("A data do evento deve ser válida.");
-            if (!Regex.IsMatch(ZipCode ?? string.Empty, @"^\d{5}-\d{3}$")) throw new ArgumentException("CEP inválido.");
+            if (AuthorId == Guid.Empty) 
+                throw new ArgumentOutOfRangeException("O Usuário criador do evento é obrigatório");
+            
+            if (EventDate.Date < DateTime.Now.Date) 
+                throw new ArgumentOutOfRangeException("A data do evento deve depois da data atual.");
+            
+            if (string.IsNullOrWhiteSpace(Description)) 
+                throw new ArgumentNullException("A descrição do evento é obrigatória.");
+
+            if (Number < 0) 
+                throw new ArgumentOutOfRangeException("Número inválido.");
+            
+            if (!Regex.IsMatch(ZipCode ?? string.Empty, @"^\d{5}-\d{3}$")) 
+                throw new ArgumentException("CEP inválido.");
         }
     }
 }
