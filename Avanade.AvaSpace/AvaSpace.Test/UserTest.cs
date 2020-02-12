@@ -4,8 +4,6 @@ using AvaSpace.Domain.Services;
 using AvaSpace.Repository.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AvaSpace.Test
 {

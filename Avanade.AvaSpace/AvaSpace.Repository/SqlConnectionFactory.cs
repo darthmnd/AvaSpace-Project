@@ -9,7 +9,7 @@ namespace AvaSpace.Repository
     {
         public static SqlConnection Create() 
         {
-            return new SqlConnection("Data Source=WIN-INQL80QOGE;Initial Catalog=DB_AVASPACE;Integrated Security=True");
+            return new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Integrated Security=True;Database=DB_AVASPACE");
         }
     }
 }

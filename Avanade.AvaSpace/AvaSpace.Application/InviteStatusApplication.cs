@@ -4,7 +4,7 @@ using AvaSpace.Domain.Interfaces.Services;
 
 namespace AvaSpace.Application
 {
-    public class InviteStatusApplication : ApplicationBase<InviteStatus>, IIviteStatusApplication
+    public class InviteStatusApplication : ApplicationBase<InviteStatus>, IInviteStatusApplication
     {
         private readonly IInviteStatusService _service;
 
