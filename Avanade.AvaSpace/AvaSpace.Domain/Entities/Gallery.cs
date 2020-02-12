@@ -5,7 +5,10 @@ namespace AvaSpace.Domain.Entities
 {
     public class Gallery : BaseEntity
     {
-        public Gallery() { }
+        public Gallery() {
+            Author = new User();
+            Midias = new List<Midia>();
+        }
         public Gallery(string name)
         {
             Name = name;
