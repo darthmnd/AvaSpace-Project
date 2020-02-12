@@ -15,7 +15,6 @@ namespace AvaSpace.Domain.Entities
 
         public Guid AuthorId { get; set; }
         public User Author { get; set; }
-        public Guid UserId { get; set; }
 
         public override void Validate()
         {

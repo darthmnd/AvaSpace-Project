@@ -22,7 +22,6 @@ namespace AvaSpace.Domain.Entities
 
         public Guid InviteStatusId { get; set; }
         public InviteStatus InviteStatus { get; set; }
-        public object StatusId { get; set; }
 
         public override void Validate()
         {
