@@ -9,7 +9,7 @@ namespace AvaSpace.Test
     {
         public BaseTest() 
         {
-            //RegisterMappers.Register();
+            RegisterMappers.Register();
         }
 
         public abstract void IntegratedTest();

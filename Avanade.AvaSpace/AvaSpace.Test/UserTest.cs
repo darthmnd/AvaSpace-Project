@@ -108,56 +108,29 @@ namespace AvaSpace.Test
             _service.Insert(user);
         }
 
-       [TestMethod]
-       [ExpectedException(typeof(ArgumentException))]
-        public void BirthdayInvalid()
-        {
-            User user = new User()
-            {
-                Name = "Maria Teste",
-                Email = "BirthdayInvalid@gmail.com",
-                GenderId = new Guid("E6C82CD5-8C61-4850-A54D-42C8E2A7AA19"),
-                CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),
-                AvatarId = new Guid("13DF0D5D-9867-41C4-9AE2-640D9A355606"),
-                Password = "123456789",
-            };
-
-            _service.Insert(user);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void GenderNull()
-        {
-            User user = new User()
-            {
-                Name = "GenderNull",
-                Email = "GenderNull@gmail.com",
-                Birthday = DateTime.Now,
-                GenderId = Guid.Empty,
-                CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),
-                AvatarId = new Guid("13DF0D5D-9867-41C4-9AE2-640D9A355606"),
-                Password = "123456789"
-            };
-
-            _service.Insert(user);
-        }
-
+             
         [TestMethod]
         public override void IntegratedTest()
         {
-            User user = new User()
+            var user = new User()
             {
-                Name = "IntegratedTest",
-                Email = "IntegratedTest@gmail.com",
-                Birthday = DateTime.Now,
-                GenderId = new Guid("E6C82CD5-8C61-4850-A54D-42C8E2A7AA19"),
-                CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),
-                AvatarId = new Guid("13DF0D5D-9867-41C4-9AE2-640D9A355606"),
-                Password = "123456789"
+                Birthday = new DateTime(1990, 08, 08),
+                Name = "TESTE",
+                Email = "teste@gmail.com",
+                Password = "12345678",
+                AvatarId = new Guid("16A1BCE4-2F14-455A-97FE-164589E32E46"),
+                GenderId = new Guid("D42AA751-73C0-4BA6-A072-60261D74B58A"),
             };
 
-            _service.Insert(user);
+            var id = _service.Insert(user);
+
+            //_service.Delete(id);
+        }
+
+        [TestMethod]
+        public void GetById()
+        {
+            var result = _service.Get(new Guid("DAAEE0A1-3E61-431F-A1AF-5BC373D6754C"));
         }
     }
 }

@@ -24,21 +24,18 @@ namespace AvaSpace.Test
         [ExpectedException(typeof(ArgumentNullException))]
         public void ValidateTest()
         {
-            var gender = new Gender("");
+            var gender = new Gender();
 
             _service.Insert(gender);
 
         }
-        
+
         [TestMethod]
         public override void IntegratedTest()
         {
-            var gender = new Gender() 
-            { 
-                Description = "Prefiro não definir."
-            };
+            var id = _service.Insert(new Gender() { Description = "TESTE" });
 
-            _service.Insert(gender);
+            _service.Delete(id);
         }
     }
 }
