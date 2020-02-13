@@ -10,6 +10,7 @@ namespace AvaSpace.Domain.Entities
             Id = Guid.NewGuid();
             DateCreate = DateTime.Now;
             DateUpdate = DateTime.Now;
+            Active = true;
         }
         public Guid Id { get; set; }
         public DateTime DateCreate { get; set; }

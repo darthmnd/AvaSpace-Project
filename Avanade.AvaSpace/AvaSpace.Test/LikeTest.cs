@@ -24,8 +24,8 @@ namespace AvaSpace.Test
         {
             var like = new Like()
             {
-                PostId = new Guid("DBC111D4-AD0F-438C-806F-E5264B71A8E1"),
-                UserId = new Guid("DAAEE0A1-3E61-431F-A1AF-5BC373D6754C")
+                PostId = new Guid("783ADAC8-26C4-4D43-A74B-1D2D51C68A0C"),
+                UserId = new Guid("7C5E0E60-726F-422E-9E48-9C892F9F653A")
             };
 
             var result = _service.Insert(like);

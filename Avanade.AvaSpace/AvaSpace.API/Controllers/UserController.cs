@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +13,16 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserApplication _userApplication;
+        public UserController(IUserApplication userApplication)
+        {
+            _userApplication = userApplication;
+        }
         // GET: api/User
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _userApplication.Get(x => x.Active);
         }
 
         // GET: api/User/5

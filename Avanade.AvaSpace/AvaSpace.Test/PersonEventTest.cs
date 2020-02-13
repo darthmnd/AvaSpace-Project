@@ -21,8 +21,8 @@ namespace AvaSpace.Test
         public override void IntegratedTest()
         {
             PersonEvent personEvent = new PersonEvent();
-            personEvent.EventId = new Guid("AB658816-7EDD-4311-87FE-65CC472D1B93");
-            personEvent.PersonId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611");
+            personEvent.EventId = new Guid("647E941F-A03D-4AA1-9F32-CE9A1A5B883E");
+            personEvent.PersonId = new Guid("B82230EA-6A0C-4971-ACDD-F805F6F3F07B");
 
             _personEventService.Insert(personEvent);
         }
