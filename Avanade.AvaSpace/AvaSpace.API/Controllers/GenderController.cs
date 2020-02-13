@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,37 +12,42 @@ namespace AvaSpace.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class GenderController : ControllerBase
-    {
-        // GET: api/Gender
+    {   
+        private readonly IGenderApplication _app;
+
+        public GenderController(IGenderApplication app)
+        {
+            _app = app;
+        }
+
+        /// <summary>
+        /// Este metodo faz a requisao de todos os generos.
+        /// </summary>
+        // GET: api/Event
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Gender> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _app.Get(x => x.Active);
         }
 
-        // GET: api/Gender/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST: api/Gender
+
+        /// <summary>
+        /// Este metodo faz o cadastro de um novo genero.
+        /// </summary>
+
+        // POST: api/Event
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Guid Post([FromBody] Gender genero)
         {
+            return _app.Insert(genero);
         }
 
-        // PUT: api/Gender/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+
+        
+
+        
     }
 }
