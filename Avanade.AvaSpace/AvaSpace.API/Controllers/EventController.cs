@@ -33,7 +33,7 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz a requisao de um evento po id.
+        /// Este metodo faz a requisao de um evento por id.
         /// </summary>
         // GET: api/Event/5
         [HttpGet("{id}")]
@@ -70,7 +70,7 @@ namespace AvaSpace.Api.Controllers
 
 
         /// <summary>
-        /// Este metodo faz a remocao de um evnto por id.
+        /// Este metodo faz a remocao de um evento por id.
         /// </summary>
        
         // DELETE: api/ApiWithActions/5

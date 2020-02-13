@@ -20,6 +20,9 @@ namespace AvaSpace.Api.Controllers
             _app = app;
         }
 
+        /// <summary>
+        /// Este metodo faz a requisao de todos os convites.
+        /// </summary>
 
         // GET: api/Invite
         [HttpGet]
@@ -28,6 +31,9 @@ namespace AvaSpace.Api.Controllers
             return _app.Get(x => x.Active);
         }
 
+        /// <summary>
+        /// Este metodo faz a requisao de um convite por id.
+        /// </summary>
         // GET: api/Invite/5
         [HttpGet("{id}")]
         public Invite Get(Guid id)
@@ -35,12 +41,19 @@ namespace AvaSpace.Api.Controllers
             return _app.Get(id);
         }
 
+        /// <summary>
+        /// Este metodo faz o cadastro do um novo convite.
+        /// </summary>
         // POST: api/Invite
         [HttpPost]
         public Guid Post([FromBody] Invite invite)
         {
             return _app.Insert(invite);
         }
+
+        /// <summary>
+        /// Este metodo faz atualizacao de um convite.
+        /// </summary>   
 
         // PUT: api/Invite/5
         [HttpPut("{id}")]
@@ -51,6 +64,9 @@ namespace AvaSpace.Api.Controllers
             _app.Update(invite);
         }
 
+        /// <summary>
+        /// Este metodo faz a remocao de um convite por id.
+        /// </summary>
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(Guid id)
