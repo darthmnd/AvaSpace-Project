@@ -7,7 +7,7 @@ namespace AvaSpace.Repository.Mappers
         public GalleryMapper()
         {
             ToTable("TB_GALLERY");
-            Map(e => e.AuthorId).ToColumn("ID_AUTHOR");
+            Map(e => e.AuthorId).ToColumn("ID_USER");
             Map(e => e.Name).ToColumn("NM_GALLERY");
         }
     }

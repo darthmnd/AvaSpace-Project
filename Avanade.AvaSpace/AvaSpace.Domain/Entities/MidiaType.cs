@@ -9,10 +9,10 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (String.IsNullOrWhiteSpace(Description))
+            if (string.IsNullOrWhiteSpace(Description))
                 throw new ArgumentNullException("'Description' não foi preenchido");
 
-            if (String.IsNullOrWhiteSpace(Extensions))
+            if (string.IsNullOrWhiteSpace(Extensions))
                 throw new ArgumentNullException("'Extensions' não foi preenchido");
         }
     }

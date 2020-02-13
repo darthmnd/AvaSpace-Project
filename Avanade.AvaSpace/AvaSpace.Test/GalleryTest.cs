@@ -26,23 +26,23 @@ namespace AvaSpace.Test
         {
             var userRepository = new UserRepository();
 
-            var userId = userRepository.GetByName("TESTE").First().Id;
+            var userId = userRepository.GetByName("Rebeca Fiorelli").First().Id;
 
             var gallery = new Gallery()
             {
-                Name = "TESTE",
-                AuthorId = userId
+                AuthorId = userId,
+                Name = "Nova Galeria"
             };
 
-            var id = _service.Insert(gallery);
+            _service.Insert(gallery);
 
-            _service.Delete(id);
+            //_service.delete(id);
         }
 
         [TestMethod]
         public void GetFeedByUserId()
         {
-            var result = _service.GetFeedByUserId(new Guid("E397367B-02FC-4F93-B222-9C24DF5FB36C"));
+            _service.GetFeedByUserId(new Guid("E397367B-02FC-4F93-B222-9C24DF5FB36C"));
         }
     }
 }

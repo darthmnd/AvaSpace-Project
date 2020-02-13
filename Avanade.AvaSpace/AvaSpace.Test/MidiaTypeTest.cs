@@ -3,7 +3,7 @@ using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
 using AvaSpace.Repository.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System;
 
 namespace AvaSpace.Test
 {
@@ -20,6 +20,7 @@ namespace AvaSpace.Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void ValidateTest()
         {
             var midiaType = new MidiaType();
@@ -32,13 +33,13 @@ namespace AvaSpace.Test
         {
             var type = new MidiaType
             {
-                Description = "TESTE",
-                Extensions = "ext,para,teste"
+                Description = "TESTEEE",
+                Extensions = "jpeg,jpg,gif,png"
             };
 
-            var id = _service.Insert(type);
+           _service.Insert(type);
 
-            _service.Delete(id);
+            //_service.Delete(id);
         }
     }
 }

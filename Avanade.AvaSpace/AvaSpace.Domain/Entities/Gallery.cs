@@ -18,7 +18,7 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (String.IsNullOrEmpty(Name))
+            if (string.IsNullOrEmpty(Name))
                 throw new ArgumentNullException("'Name' não foi preenchido");
 
             if (AuthorId == Guid.Empty)

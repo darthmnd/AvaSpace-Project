@@ -1,5 +1,5 @@
 ﻿using AvaSpace.Domain.Entities;
-using AvaSpace.Domain.Interfaces.Repositories;
+using System;
 using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
 using AvaSpace.Repository.Repositories;
@@ -21,6 +21,8 @@ namespace AvaSpace.Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+
         public void ValidateTest()
         {
             var midiaType = new Midia();
@@ -37,14 +39,14 @@ namespace AvaSpace.Test
 
             var midia = new Midia
             {
-                Description = "Foto na praia",
-                Path = "/photos/file.jpg",
+                Description = "Foto na praia de biquini",
+                Path = "/photos/file1.jpg",
                 MidiaTypeId = type.Id
             };
 
-            var id = _service.Insert(midia);
+            _service.Insert(midia);
 
-            _service.Delete(id);
+            //_service.Delete(id);
         }
     }
 }

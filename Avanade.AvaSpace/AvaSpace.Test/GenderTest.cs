@@ -1,10 +1,7 @@
 using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
-using AvaSpace.Repository.Mappers;
 using AvaSpace.Repository.Repositories;
-using Dapper.FluentMap;
-using Dapper.FluentMap.Dommel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -35,7 +32,7 @@ namespace AvaSpace.Test
         {
             var gender = new Gender() 
             { 
-                Description = "Unicornio"
+                Description = "Não Binário"
             };
 
             _service.Insert(gender);

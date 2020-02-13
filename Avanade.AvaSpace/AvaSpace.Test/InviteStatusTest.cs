@@ -22,9 +22,8 @@ namespace AvaSpace.Test
         [TestMethod]
         public override void IntegratedTest()
         {
-            var id = _service.Insert(new InviteStatus() { Description = "TESTE" });
+            var id = _service.Insert(new InviteStatus() { Description = "HELLO WORLD" });
 
-            _service.Delete(id);
         }
     }
 }

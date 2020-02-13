@@ -15,13 +15,13 @@ namespace AvaSpace.Domain.Entities
 
         public override void Validate()
         {
-            if (String.IsNullOrWhiteSpace(Description))
+            if (string.IsNullOrWhiteSpace(Description))
                 throw new ArgumentNullException("'Description' não foi preenchido");
 
             if (MidiaTypeId == Guid.Empty)
                 throw new ArgumentNullException("'MidiaTypeId' não foi preenchido");
 
-            if (String.IsNullOrWhiteSpace(Path))
+            if (string.IsNullOrWhiteSpace(Path))
                 throw new ArgumentNullException("'Path' não foi preenchido");
         }
     }

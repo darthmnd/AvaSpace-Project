@@ -26,8 +26,8 @@ namespace AvaSpace.Test
             var post = new Post()
             {
                 ParentId = null,
-                AuthorId = new Guid("FA08963D-E890-4939-99E8-0E4877FAA5D0"),
-                Text = "Fui pa praia! Foi MARA!",
+                AuthorId = new Guid("7F21704C-4E76-4FC2-BDD2-98BD03D86115"),
+                Text = "Será que agora vai?",
             };
 
             var id = _service.Insert(post);

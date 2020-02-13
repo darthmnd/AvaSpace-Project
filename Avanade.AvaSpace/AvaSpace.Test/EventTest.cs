@@ -52,7 +52,7 @@ namespace AvaSpace.Test
                 Complement = "A",
                 Neighborhood = "TESTE",
                 ZipCode = "02751-000",
-                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+                AuthorId = new Guid("7F21704C-4E76-4FC2-BDD2-98BD03D86115")
             };
 
             _eventService.Insert(evento);
@@ -72,14 +72,14 @@ namespace AvaSpace.Test
                 Complement = "A",
                 Neighborhood = "TESTE",
                 ZipCode = "02751-000",
-                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+                AuthorId = new Guid("7F21704C-4E76-4FC2-BDD2-98BD03D86115")
             };
 
             _eventService.Insert(evento);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void NumberInvalid()
         {
             Event evento = new Event()
@@ -92,7 +92,7 @@ namespace AvaSpace.Test
                 Complement = "A",
                 Neighborhood = "TESTE",
                 ZipCode = "02751-000",
-                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+                AuthorId = new Guid("7F21704C-4E76-4FC2-BDD2-98BD03D86115")
             };
 
             _eventService.Insert(evento);
@@ -112,7 +112,7 @@ namespace AvaSpace.Test
                 Complement = "A",
                 Neighborhood = "TESTE",
                 ZipCode = "02751000",
-                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+                AuthorId = new Guid("7F21704C-4E76-4FC2-BDD2-98BD03D86115")
             };
 
             _eventService.Insert(evento);
@@ -131,7 +131,7 @@ namespace AvaSpace.Test
                 Complement = "Amém",
                 Neighborhood = "Céu",
                 ZipCode = "02751-000",
-                AuthorId = new Guid("7C5E0E60-726F-422E-9E48-9C892F9F653A")
+                AuthorId = new Guid("7F21704C-4E76-4FC2-BDD2-98BD03D86115")
             };
             _eventService.Insert(evento);
         }
