@@ -55,9 +55,9 @@ namespace AvaSpace.Api.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            //_app.Delete(id);
+            _app.Delete(id);
         }
     }
 }

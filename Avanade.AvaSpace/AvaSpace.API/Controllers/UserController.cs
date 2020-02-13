@@ -27,27 +27,31 @@ namespace AvaSpace.Api.Controllers
 
         // GET: api/User/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public User Get(Guid id)
         {
-            return "value";
+            return _userApplication.Get(id);
         }
 
         // POST: api/User
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("{id}")]
+        public void Post([FromBody] User user)
         {
+            _userApplication.Insert(user);
         }
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Guid id, [FromBody] User user)
         {
+            user.Id = id;
+            _userApplication.Update(user);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            _userApplication.Delete(id);
         }
     }
 }
