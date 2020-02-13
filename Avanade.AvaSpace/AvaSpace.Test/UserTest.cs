@@ -116,9 +116,9 @@ namespace AvaSpace.Test
             {
                 Name = "Maria Teste",
                 Email = "BirthdayInvalid@gmail.com",
-                GenderId = new Guid("E6C82CD5-8C61-4850-A54D-42C8E2A7AA19"),
-                CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),
-                AvatarId = new Guid("13DF0D5D-9867-41C4-9AE2-640D9A355606"),
+                GenderId = new Guid("DB8DBEE8-DD02-4D63-8F06-319A8CA7A4D7"),
+                CoverId = new Guid("1F0B5B71-B9BD-4F44-935B-026FD77D2226"),
+                AvatarId = new Guid("1F0B5B71-B9BD-4F44-935B-026FD77D2226"),
                 Password = "123456789",
             };
 
@@ -135,9 +135,9 @@ namespace AvaSpace.Test
                 Name = "IntegratedTeste",
                 Email = "IntegratedTeste@gmail.com",
                 Birthday = DateTime.Now,
-                GenderId = new Guid("E6C82CD5-8C61-4850-A54D-42C8E2A7AA19"),
-                CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),
-                AvatarId = new Guid("13DF0D5D-9867-41C4-9AE2-640D9A355606"),
+                GenderId = new Guid("DB8DBEE8-DD02-4D63-8F06-319A8CA7A4D7"),
+                CoverId = new Guid("1F0B5B71-B9BD-4F44-935B-026FD77D2226"),
+                AvatarId = new Guid("1F0B5B71-B9BD-4F44-935B-026FD77D2226"),
                 Password = "123456789"
             };
 
