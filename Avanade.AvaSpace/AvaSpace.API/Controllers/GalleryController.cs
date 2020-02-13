@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,36 +13,29 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class GalleryController : ControllerBase
     {
-        // GET: api/Gallery
-        [HttpGet]
-        public IEnumerable<string> Get()
+
+        private readonly IGalleryApplication _app;
+
+        public GalleryController(IGalleryApplication app)
         {
-            return new string[] { "value1", "value2" };
+            _app = app;
         }
 
-        // GET: api/Gallery/5
+        
+        /// <summary>
+        /// Este metodo faz a requisao da galeria por Usuario Id..
+        /// </summary>
+        // GET: api/Event/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Gallery Get(Guid id)
         {
-            return "value";
+            return _app.Get(id);
         }
 
-        // POST: api/Gallery
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
 
-        // PUT: api/Gallery/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+
+        
     }
 }
