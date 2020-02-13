@@ -22,10 +22,8 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz a requisao de todos os eventos.
+        /// Retorna todos os eventos ativos.
         /// </summary>
-        // GET: api/Event
-
         [HttpGet]
         public IEnumerable<Event> Get()
         {
@@ -33,9 +31,8 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz a requisao de um evento por id.
+        /// Retorna um evento pelo id.
         /// </summary>
-        // GET: api/Event/5
         [HttpGet("{id}")]
         public Event Get(Guid id)
         {
@@ -44,10 +41,8 @@ namespace AvaSpace.Api.Controllers
 
 
         /// <summary>
-        /// Este metodo faz o cadastro do evento.
+        /// Cadastra um novo evento.
         /// </summary>
-        
-        // POST: api/Event
         [HttpPost]
         public Guid Post([FromBody] Event evento )
         {
@@ -56,10 +51,8 @@ namespace AvaSpace.Api.Controllers
 
 
         /// <summary>
-        /// Este metodo faz atualizacao de um evento.
-        /// </summary>   
-
-        // PUT: api/Event/5
+        /// Atualiza os dados de um evento pelo id.
+        /// </summary>
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] Event evento)
         {
@@ -70,10 +63,8 @@ namespace AvaSpace.Api.Controllers
 
 
         /// <summary>
-        /// Este metodo faz a remocao de um evento por id.
+        /// Desativa um evento pelo id.
         /// </summary>
-       
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {

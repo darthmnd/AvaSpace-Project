@@ -11,6 +11,7 @@ namespace AvaSpace.IoC.Containers
             Applications.AddSingleton<IGenderApplication, GenderApplication>();
             Applications.AddSingleton<IInviteApplication, InviteApplication>();
             Applications.AddSingleton<IInviteStatusApplication, InviteStatusApplication>();
+            Applications.AddSingleton<IEventApplication, EventApplication>();
             Applications.AddSingleton<ILikeApplication, LikeApplication>();
             Applications.AddSingleton<IMidiaApplication, MidiaApplication>();
             Applications.AddSingleton<IMidiaTypeApplication, MidiaTypeApplication>();

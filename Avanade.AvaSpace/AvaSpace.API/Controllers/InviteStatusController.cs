@@ -22,9 +22,8 @@ namespace AvaSpace.Api.Controllers
 
 
         /// <summary>
-        /// Este metodo faz a requisao de todos os status.
+        /// Retorna todos os status.
         /// </summary>
-        // GET: api/Invite
         [HttpGet]
         public IEnumerable<InviteStatus> Get()
         {
@@ -32,9 +31,8 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz a requisao de um status por id.
+        /// Retorna status por id.
         /// </summary>
-        // GET: api/Invite/5
         [HttpGet("{id}")]
         public InviteStatus Get(Guid id)
         {
@@ -42,9 +40,8 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz o cadastro do um novo status.
+        /// Cria um novo status.
         /// </summary>
-        // POST: api/Invite
         [HttpPost]
         public Guid Post([FromBody] InviteStatus invite)
         {
@@ -52,9 +49,8 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz atualizacao de um status.
-        /// </summary>   
-        // PUT: api/Invite/5
+        /// Atualiza um status.
+        /// </summary>
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] InviteStatus invite)
         {
@@ -64,10 +60,8 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este metodo faz a remocao de um status por id.
+        /// Desativa o status pelo id.
         /// </summary>
-
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {

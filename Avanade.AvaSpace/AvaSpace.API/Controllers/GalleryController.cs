@@ -13,29 +13,20 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class GalleryController : ControllerBase
     {
-
         private readonly IGalleryApplication _app;
 
         public GalleryController(IGalleryApplication app)
         {
             _app = app;
         }
-
         
         /// <summary>
-        /// Este metodo faz a requisao da galeria por Usuario Id..
+        /// Retorna a galeria do usuário pelo id.
         /// </summary>
-        // GET: api/Event/5
         [HttpGet("{id}")]
         public Gallery Get(Guid id)
         {
             return _app.Get(id);
         }
-
-
-        
-
-
-        
     }
 }

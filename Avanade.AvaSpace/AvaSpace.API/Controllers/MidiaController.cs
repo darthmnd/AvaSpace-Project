@@ -17,7 +17,7 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este método faz a requisição de todas as mídias ativas.
+        /// Retorna todas as mídias ativas.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -27,7 +27,7 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Este método faz a requisição de todas as mídias ativas do usuário passado.
+        /// Retorna todas as mídias ativas do usuário passado.
         /// </summary>
         /// <returns></returns>
         [HttpGet("{id}")]
@@ -36,22 +36,25 @@ namespace AvaSpace.Api.Controllers
             return _midiaApplication.Get(id);
         }
 
-        // POST: api/Midia
-        [HttpPost]
-        public void Post([FromBody] string value)
+        /// <summary>
+        /// Insere uma imagem em determinado post.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("{id}")]
+        public void Post(Guid id, [FromBody] Midia midia)
         {
+            _midiaApplication.Insert(midia);   
         }
 
-        // PUT: api/Midia/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// Desativa a midia de uma imagem.
+        /// </summary>
+        /// <returns></returns>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            var midia = _midiaApplication.Get(id);
+            _midiaApplication.Update(midia);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AvaSpace.IoC.Containers
             services.AddSingleton<IGenderService, GenderService>();
             services.AddSingleton<IInviteService, InviteService>();
             services.AddSingleton<IInviteStatusService, InviteStatusService>();
+            services.AddSingleton<IEventService, EventService>();
             services.AddSingleton<ILikeService, LikeService>();
             services.AddSingleton<IMidiaService, MidiaService>();
             services.AddSingleton<IMidiaTypeService, MidiaTypeService>();

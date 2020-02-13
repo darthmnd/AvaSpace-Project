@@ -12,6 +12,7 @@ namespace AvaSpace.IoC.Containers
             services.AddSingleton<IGenderRepository, GenderRepository>();
             services.AddSingleton<IInviteRepository, InviteRepository>();
             services.AddSingleton<IInviteStatusRepository, InviteStatusRepository>();
+            services.AddSingleton<IEventRepository, EventRepository>();
             services.AddSingleton<ILikeRepository, LikeRepository>();
             services.AddSingleton<IMidiaRepository, MidiaRepository>();
             services.AddSingleton<IMidiaTypeRepository, MidiaTypeRepository>();

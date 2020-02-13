@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AvaSpace.Domain.Entities;
+﻿using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,16 +20,27 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Retorna todos os posts do usuário passado.
+        /// Retorna todos os posts ativos.
         /// </summary>
-        /// <returns></returns>[HttpGet("{id}")]
+        /// <returns></returns>
+        [HttpGet]
+        public IEnumerable<Post> Get()
+        {
+            return _app.Get(x => x.Active);
+        }
+
+        /// <summary>
+        /// Retorna um post.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{id}")]
         public Post Get(Guid id)
         {
             return _app.Get(id);
         }
 
         /// <summary>
-        /// Cria um novo post. 
+        /// Cria um novo post.
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -42,9 +51,10 @@ namespace AvaSpace.Api.Controllers
         }
 
         /// <summary>
-        /// Atualiza os dados de um usuário. 
+        /// Atualiza os dados de um post.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="id"></param>
+        /// <param name="post"></param>
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] Post post)
         {
@@ -56,15 +66,13 @@ namespace AvaSpace.Api.Controllers
         /// <summary>
         /// Desativa um post pelo id.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
-            var user = _app.Get(id);
-
-            user.Active = false;
-
-            _app.Update(user);
+            var post = _app.Get(id);
+            post.Active = false;
+            _app.Update(post);
         }
     }
 }
