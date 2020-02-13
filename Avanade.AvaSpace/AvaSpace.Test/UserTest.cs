@@ -108,8 +108,8 @@ namespace AvaSpace.Test
             _service.Insert(user);
         }
 
-       [TestMethod]
-       [ExpectedException(typeof(ArgumentException))]
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void BirthdayInvalid()
         {
             User user = new User()
@@ -125,23 +125,7 @@ namespace AvaSpace.Test
             _service.Insert(user);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void GenderNull()
-        {
-            User user = new User()
-            {
-                Name = "GenderNull",
-                Email = "GenderNull@gmail.com",
-                Birthday = DateTime.Now,
-                GenderId = Guid.Empty,
-                CoverId = new Guid("E6DE7EDF-8DCE-462F-931D-3CA37647FB8F"),
-                AvatarId = new Guid("13DF0D5D-9867-41C4-9AE2-640D9A355606"),
-                Password = "123456789"
-            };
-
-            _service.Insert(user);
-        }
+        
 
         [TestMethod]
         public override void IntegratedTest()
