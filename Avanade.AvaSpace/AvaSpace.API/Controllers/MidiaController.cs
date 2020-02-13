@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace AvaSpace.Api.Controllers
 {
@@ -11,36 +10,51 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class MidiaController : ControllerBase
     {
-        // GET: api/Midia
+        private readonly IMidiaApplication _midiaApplication;
+        public MidiaController(IMidiaApplication midiaApplication)
+        {
+            _midiaApplication = midiaApplication;
+        }
+
+        /// <summary>
+        /// Retorna todas as mídias ativas.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Midia> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _midiaApplication.Get(x => x.Active);
         }
 
-        // GET: api/Midia/5
+        /// <summary>
+        /// Retorna todas as mídias ativas do usuário passado.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Midia Get(Guid id)
         {
-            return "value";
+            return _midiaApplication.Get(id);
         }
 
-        // POST: api/Midia
-        [HttpPost]
-        public void Post([FromBody] string value)
+        /// <summary>
+        /// Insere uma imagem em determinado post.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("{id}")]
+        public void Post(Guid id, [FromBody] Midia midia)
         {
+            _midiaApplication.Insert(midia);   
         }
 
-        // PUT: api/Midia/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// Desativa a midia de uma imagem.
+        /// </summary>
+        /// <returns></returns>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            var midia = _midiaApplication.Get(id);
+            _midiaApplication.Update(midia);
         }
     }
 }

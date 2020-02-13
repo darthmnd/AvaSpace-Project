@@ -7,10 +7,12 @@ namespace AvaSpace.Application
     public class GalleryApplication : ApplicationBase<Gallery>, IGalleryApplication
     {
         private readonly IGalleryService _service;
+        private readonly IUserService _userService;
 
-        public GalleryApplication(IGalleryService Service) : base(Service)
+        public GalleryApplication(IGalleryService service, IUserService userService) : base(service)
         {
-            _service = Service;
+            _service = service;
+            _userService = userService;
         }
     }
 }

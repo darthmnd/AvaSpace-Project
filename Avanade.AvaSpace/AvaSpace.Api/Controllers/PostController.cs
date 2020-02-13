@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AvaSpace.Domain.Entities;
+﻿using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,22 +19,30 @@ namespace AvaSpace.Api.Controllers
             _app = app;
         }
 
-
-        // GET: api/Post
+        /// <summary>
+        /// Retorna todos os posts ativos.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<Post> Get()
         {
             return _app.Get(x => x.Active);
         }
 
-        // GET: api/Post/5
+        /// <summary>
+        /// Retorna um post.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public Post Get(Guid id)
         {
             return _app.Get(id);
         }
 
-        // POST: api/Post
+        /// <summary>
+        /// Cria um novo post.
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public Guid Post([FromBody] Post post)
         {
@@ -44,7 +50,11 @@ namespace AvaSpace.Api.Controllers
 
         }
 
-        // PUT: api/Post/5
+        /// <summary>
+        /// Atualiza os dados de um post.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="post"></param>
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] Post post)
         {
@@ -53,11 +63,16 @@ namespace AvaSpace.Api.Controllers
             _app.Update(post);
         }
 
-        // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// Desativa um post pelo id.
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
-            _app.Delete(id);
+            var post = _app.Get(id);
+            post.Active = false;
+            _app.Update(post);
         }
     }
 }

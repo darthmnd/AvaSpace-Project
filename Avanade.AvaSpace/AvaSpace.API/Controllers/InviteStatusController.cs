@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,36 +13,63 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class InviteStatusController : ControllerBase
     {
-        // GET: api/InviteStatus
+        private readonly IInviteStatusApplication _app;
+
+        public InviteStatusController(IInviteStatusApplication app)
+        {
+            _app = app;
+        }
+
+
+        /// <summary>
+        /// Retorna todos os status.
+        /// </summary>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<InviteStatus> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _app.Get(x => x.Active);
         }
 
-        // GET: api/InviteStatus/5
+        /// <summary>
+        /// Retorna status por id.
+        /// </summary>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public InviteStatus Get(Guid id)
         {
-            return "value";
+            return _app.Get(id);
         }
 
-        // POST: api/InviteStatus
+        /// <summary>
+        /// Cria um novo status.
+        /// </summary>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Guid Post([FromBody] InviteStatus invite)
         {
+            return _app.Insert(invite);
         }
 
-        // PUT: api/InviteStatus/5
+        /// <summary>
+        /// Atualiza um status.
+        /// </summary>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Guid id, [FromBody] InviteStatus invite)
         {
+            invite.Id = id;
+
+            _app.Update(invite);
         }
 
-        // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// Desativa o status pelo id.
+        /// </summary>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            var invite = _app.Get(id);
+
+            invite.Active = false;
+
+            _app.Update(invite);
         }
     }
 }
