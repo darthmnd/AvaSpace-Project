@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,36 +13,53 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class InviteController : ControllerBase
     {
+        private readonly IInviteApplication _app;
+
+        public InviteController(IInviteApplication app)
+        {
+            _app = app;
+        }
+
+
         // GET: api/Invite
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Invite> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _app.Get(x => x.Active);
         }
 
         // GET: api/Invite/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Invite Get(Guid id)
         {
-            return "value";
+            return _app.Get(id);
         }
 
         // POST: api/Invite
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Guid Post([FromBody] Invite invite)
         {
+            return _app.Insert(invite);
         }
 
         // PUT: api/Invite/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Guid id, [FromBody] Invite invite)
         {
+            invite.Id = id;
+
+            _app.Update(invite);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            var invite = _app.Get(id);
+
+            invite.Active = false;
+
+            _app.Update(invite);
         }
     }
 }
