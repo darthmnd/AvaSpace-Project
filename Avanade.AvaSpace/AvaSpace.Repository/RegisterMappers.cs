@@ -1,4 +1,5 @@
-﻿using AvaSpace.Repository.Mappers;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Repository.Mappers;
 using Dapper.FluentMap;
 using Dapper.FluentMap.Dommel;
 
@@ -10,6 +11,7 @@ namespace AvaSpace.Repository
         {
             FluentMapper.Initialize(config =>
             {
+                config.AddMap(new BaseMapper<BaseEntity>());
                 config.AddMap(new EventMapper());
                 config.AddMap(new GalleryMapper());
                 config.AddMap(new GenderMapper());

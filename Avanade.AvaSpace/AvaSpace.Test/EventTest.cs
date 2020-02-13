@@ -123,15 +123,15 @@ namespace AvaSpace.Test
         {
             Event evento = new Event()
             {
-                Name = "Evento Teste 2",
-                Description = "este evento serve para x y z.",
+                Name = "MEETUP AVASPACE",
+                Description = "Jesus salvará.",
                 EventDate = DateTime.Now,
-                Street = "Rua Teste ABC",
+                Street = "Rua Gloria",
                 Number = 256,
-                Complement = "A",
-                Neighborhood = "TESTE",
+                Complement = "Amém",
+                Neighborhood = "Céu",
                 ZipCode = "02751-000",
-                AuthorId = new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")
+                AuthorId = new Guid("7C5E0E60-726F-422E-9E48-9C892F9F653A")
             };
             _eventService.Insert(evento);
         }

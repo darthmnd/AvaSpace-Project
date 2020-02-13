@@ -1,8 +1,7 @@
-﻿using Avaspace.Domain.Interfaces.Repositories;
-using AvaSpace.Domain.Entities;
-using AvaSpace.Repository;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Repositories;
 
-namespace AvaSpace.Infrastructure.Persistence.Repository.Repositories
+namespace AvaSpace.Repository.Repositories
 {
     public class LikeRepository : RepositoryBase<Like>, ILikeRepository
     {

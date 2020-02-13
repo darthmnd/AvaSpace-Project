@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AvaSpace.Application
 {
-    class GenderApplication : ApplicationBase<Gender>, IGenderApplication
+    public class GenderApplication : ApplicationBase<Gender>, IGenderApplication
     {
         private readonly IGenderService _service;
 

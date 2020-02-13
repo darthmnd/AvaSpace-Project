@@ -1,7 +1,7 @@
 ﻿using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Services;
 using AvaSpace.Domain.Services;
-using AvaSpace.Infrastructure.Persistence.Repository.Repositories;
+using AvaSpace.Repository.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -14,7 +14,7 @@ namespace AvaSpace.Test
 
         public PostTest()
         {
-            var repository = new PostRespository();
+            var repository = new PostRepository();
 
             _service = new PostService(repository);
         }
@@ -25,7 +25,8 @@ namespace AvaSpace.Test
         {
             var post = new Post()
             {
-                AuthorId = new Guid("508FB614-01B6-40F9-8149-654B87FD8BBD"),
+                ParentId = null,
+                AuthorId = new Guid("FA08963D-E890-4939-99E8-0E4877FAA5D0"),
                 Text = "Fui pa praia! Foi MARA!",
             };
 

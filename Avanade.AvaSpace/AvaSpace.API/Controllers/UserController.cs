@@ -4,50 +4,54 @@ using System.Linq;
 using System.Threading.Tasks;
 using AvaSpace.Domain.Entities;
 using AvaSpace.Domain.Interfaces.Applications;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace AvaSpace.API.Controllers
+namespace AvaSpace.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserApplication _app;
-        public UserController(IUserApplication app)
+        private readonly IUserApplication _userApplication;
+        public UserController(IUserApplication userApplication)
         {
-            _app = app;
+            _userApplication = userApplication;
         }
-        // GET: api/<controller>
+        // GET: api/User
         [HttpGet]
-        public void Get()
+        public IEnumerable<User> Get()
         {
+            return _userApplication.Get(x => x.Active);
         }
 
-        // GET api/<controller>/5
+        // GET: api/User/5
         [HttpGet("{id}")]
         public User Get(Guid id)
         {
-            return _app.Get(new Guid("17B4286D-57E7-48DD-A734-021F73DBA611")); ;
+            return _userApplication.Get(id);
         }
 
-        // POST api/<controller>
-        [HttpPost]
-        public void Post([FromBody]string value)
+        // POST: api/User
+        [HttpPost("{id}")]
+        public void Post([FromBody] User user)
         {
+            _userApplication.Insert(user);
         }
 
-        // PUT api/<controller>/5
+        // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(Guid id, [FromBody] User user)
         {
+            user.Id = id;
+            _userApplication.Update(user);
         }
 
-        // DELETE api/<controller>/5
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            _userApplication.Delete(id);
         }
     }
 }

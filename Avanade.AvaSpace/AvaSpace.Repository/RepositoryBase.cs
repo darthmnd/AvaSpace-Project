@@ -66,7 +66,7 @@ namespace AvaSpace.Repository
         {
             using (var cn = SqlConnectionFactory.Create())
             {
-                entity.DateUpdated = DateTime.Now;
+                entity.DateUpdate = DateTime.Now;
 
                 return cn.Update(entity);
             }

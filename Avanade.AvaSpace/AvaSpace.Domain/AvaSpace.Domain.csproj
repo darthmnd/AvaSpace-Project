@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AvaSpace\" />
+    <Compile Remove="AvaSpace\**" />
+    <EmbeddedResource Remove="AvaSpace\**" />
+    <None Remove="AvaSpace\**" />
   </ItemGroup>
 
 </Project>
