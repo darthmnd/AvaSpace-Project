@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace AvaSpace.Api.Controllers
 {
@@ -11,18 +9,17 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class PersonEventController : ControllerBase
     {
-        // GET: api/PersonEvent
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IPersonEventApplication _app;
+        public PersonEventController(IPersonEventApplication app) 
         {
-            return new string[] { "value1", "value2" };
+            _app = app;
         }
 
-        // GET: api/PersonEvent/5
+
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+        public PersonEvent Get(Guid id)
+        {            
+            return _app.Get(id);
         }
 
         // POST: api/PersonEvent

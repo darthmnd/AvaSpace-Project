@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AvaSpace.Domain.Interfaces.Applications;
-using Microsoft.AspNetCore.Http;
+﻿using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace AvaSpace.Api.Controllers
 {
-    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProfileController : ControllerBase
     {
@@ -19,7 +15,11 @@ namespace AvaSpace.Api.Controllers
             _app = app;
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpGet("{id}/feed/")]
+        /// <summary>
+        /// Retorna o feed do id passado.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{id}/feed/")]
         public ObjectResult GetFeedByUserId(Guid id)
         {
             try
@@ -34,7 +34,11 @@ namespace AvaSpace.Api.Controllers
             }
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpGet("{id}/timeline/")]
+        /// <summary>
+        /// Retorna a timeline do id passado.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{id}/timeline/")]
         public ObjectResult GetTimeLine(Guid id)
         {
             try

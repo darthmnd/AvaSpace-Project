@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace AvaSpace.Api.Controllers
 {
@@ -11,18 +10,30 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class MidiaController : ControllerBase
     {
-        // GET: api/Midia
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IMidiaApplication _midiaApplication;
+        public MidiaController(IMidiaApplication midiaApplication)
         {
-            return new string[] { "value1", "value2" };
+            _midiaApplication = midiaApplication;
         }
 
-        // GET: api/Midia/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        /// <summary>
+        /// Este método faz a requisição de todas as mídias ativas.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IEnumerable<Midia> Get()
         {
-            return "value";
+            return _midiaApplication.Get(x => x.Active);
+        }
+
+        /// <summary>
+        /// Este método faz a requisição de todas as mídias ativas do usuário passado.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public Midia Get(Guid id)
+        {
+            return _midiaApplication.Get(id);
         }
 
         // POST: api/Midia

@@ -18,28 +18,41 @@ namespace AvaSpace.Api.Controllers
         {
             _userApplication = userApplication;
         }
-        // GET: api/User
+
+        /// <summary>
+        /// Retorna todos usuários ativos.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<User> Get()
         {
             return _userApplication.Get(x => x.Active);
         }
 
-        // GET: api/User/5
+        /// <summary>
+        /// Retorna um usuário pelo id.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public User Get(Guid id)
         {
             return _userApplication.Get(id);
         }
 
-        // POST: api/User
+        /// <summary>
+        /// Cria um novo usuário.
+        /// </summary>
+        /// <returns></returns>
         [HttpPost("{id}")]
         public void Post([FromBody] User user)
         {
             _userApplication.Insert(user);
         }
 
-        // PUT: api/User/5
+        /// <summary>
+        /// Atualiza os dados de um usuário.
+        /// </summary>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] User user)
         {
@@ -47,11 +60,18 @@ namespace AvaSpace.Api.Controllers
             _userApplication.Update(user);
         }
 
-        // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// Desativa um usuário.
+        /// </summary>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
-            _userApplication.Delete(id);
+            var user = _userApplication.Get(id);
+
+            user.Active = false;
+
+            _userApplication.Update(user);
         }
     }
 }
