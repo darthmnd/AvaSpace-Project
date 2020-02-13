@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AvaSpace.Domain.Entities;
+using AvaSpace.Domain.Interfaces.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,41 +13,75 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
+
+        private readonly IEventApplication _app;
+
+        public EventController(IEventApplication app)
+        {
+            _app = app;
+        }
+
         /// <summary>
-        /// Este metodo faz a requisicao dos eventos.
+        /// Este metodo faz a requisao de todos os eventos.
         /// </summary>
+        // GET: api/Event
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Event> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _app.Get(x => x.Active);
         }
 
         /// <summary>
-        /// pi pi pi popopo.
+        /// Este metodo faz a requisao de um evento po id.
         /// </summary>
-        /// <param name="id"></param>
+        // GET: api/Event/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Event Get(Guid id)
         {
-            return "value";
+            return _app.Get(id);
         }
 
+
+        /// <summary>
+        /// Este metodo faz o cadastro do evento.
+        /// </summary>
+        
         // POST: api/Event
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Guid Post([FromBody] Event evento )
         {
+            return _app.Insert(evento);
         }
+
+
+        /// <summary>
+        /// Este metodo faz atualizacao de um evento.
+        /// </summary>   
 
         // PUT: api/Event/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Guid id, [FromBody] Event evento)
         {
+            evento.Id = id;
+
+            _app.Update(evento);
         }
 
+
+        /// <summary>
+        /// Este metodo faz a remocao de um evnto por id.
+        /// </summary>
+       
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            var invite = _app.Get(id);
+
+            invite.Active = false;
+
+            _app.Update(invite);
         }
     }
 }
