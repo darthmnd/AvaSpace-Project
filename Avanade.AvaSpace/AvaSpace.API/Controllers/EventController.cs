@@ -11,15 +11,20 @@ namespace AvaSpace.Api.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
-        // GET: api/Event
+        /// <summary>
+        /// Este metodo faz a requisicao dos eventos.
+        /// </summary>
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Event/5
-        [HttpGet("{id}"]
+        /// <summary>
+        /// pi pi pi popopo.
+        /// </summary>
+        /// <param name="id"></param>
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
